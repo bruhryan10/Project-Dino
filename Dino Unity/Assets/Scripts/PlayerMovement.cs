@@ -9,40 +9,62 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 moveDir;
     public float moveSpeed = 8f;
     public float jumpHeight = 5f;
+    public float jumpSpeed = 5f;
+    private float direction = 0f;
     Vector3 Velocity;
     Vector3 Jump;
+    private Rigidbody2D player;
+
+    public Transform groundCheck;
+    public float groundCheckRadius;
+    public LayerMask groundLayer;
+    private bool isTouchingGround;
 
     void Start()
     {
-        
+        player = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
+        //Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
+        isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        direction = Input.GetAxis("Horizontal");
 
         Jump = Vector3.zero;
         Velocity = Vector3.zero;
-        if (Input.GetKey(KeyCode.D))
+        if (direction > 0f)
         {
-            Velocity += Vector3.right;
+            player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
+            //Velocity += Vector3.right;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (direction < 0f)
         {
-            Velocity += Vector3.left;
+            player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
+            //Velocity += Vector3.left;
         }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && isTouchingGround)
         {
-            Jump += Vector3.up;
+
+            player.velocity = new Vector2(player.velocity.x, jumpSpeed);
+            //Jump += Vector3.up;
+            
         }
 
-        Jump *= jumpHeight;
+        //Jump *= jumpHeight;
 
-        transform.position += Jump * Time.deltaTime;
+        //transform.position += Jump * Time.deltaTime;
 
-        Velocity *= moveSpeed;
+        //Velocity *= moveSpeed;
 
-        transform.position += Velocity * Time.deltaTime;
+        //transform.position += Velocity * Time.deltaTime;
 
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+    }
+
 }
