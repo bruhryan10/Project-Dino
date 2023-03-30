@@ -20,6 +20,10 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     private bool isTouchingGround;
 
+
+
+    public Animator playerAnim;
+
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
@@ -35,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         Velocity = Vector3.zero;
         if (direction > 0f)
         {
+            playerAnim.Play("DinoWalk_Right");
             player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
             //Velocity += Vector3.right;
         }
