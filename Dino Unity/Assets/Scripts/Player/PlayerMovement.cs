@@ -61,6 +61,19 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "Icicle")
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

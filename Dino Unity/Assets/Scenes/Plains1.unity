@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 340108666}
   m_Layer: 6
   m_Name: Plains2 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3656,7 +3656,7 @@ GameObject:
   - component: {fileID: 534246233}
   m_Layer: 6
   m_Name: Plains2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7013,7 +7013,7 @@ GameObject:
   - component: {fileID: 1222660801}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7189,7 +7189,7 @@ GameObject:
   - component: {fileID: 1505150734}
   m_Layer: 6
   m_Name: Plains3 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9800,7 +9800,7 @@ GameObject:
   - component: {fileID: 1818475598}
   m_Layer: 6
   m_Name: Plains3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12411,7 +12411,7 @@ GameObject:
   - component: {fileID: 1883484411}
   m_Layer: 6
   m_Name: Plains1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
