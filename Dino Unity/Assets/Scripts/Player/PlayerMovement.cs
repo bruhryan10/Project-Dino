@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
+    private bool inTar;
+    public float tarTime;
+    public float tarLimit;
 
 
 
@@ -56,13 +59,7 @@ public class PlayerMovement : MonoBehaviour
             
         }
 
-        //Jump *= jumpHeight;
-
-        //transform.position += Jump * Time.deltaTime;
-
-        //Velocity *= moveSpeed;
-
-        //transform.position += Velocity * Time.deltaTime;
+        
 
     }
 
@@ -72,6 +69,50 @@ public class PlayerMovement : MonoBehaviour
         {
             Die();
         }
+        if(collision.collider.tag == "TarPit")
+        {
+            moveSpeed -= 2;
+            inTar = true;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "TarPit")
+        {
+            TarPitTimer();
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "TarPit")
+        {
+            moveSpeed += 2;
+            inTar = false;
+            tarTime = 0;
+        }
+    }
+
+    public void TarPitTimer()
+    {
+        if(tarTime > tarLimit)
+        {
+            GetComponent<Collider2D>().enabled = false;
+            GetComponent<Rigidbody2D>().gravityScale = 0.1f;
+            StartCoroutine(TarFalling());
+            
+        }
+        else
+        {
+            tarTime += Time.deltaTime;
+        }
+    }
+    IEnumerator TarFalling()
+    {
+        
+        yield return new WaitForSecondsRealtime(2);
+        Die();
+
     }
 
     public void Die()
