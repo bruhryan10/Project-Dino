@@ -27,9 +27,16 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator playerAnim;
 
+
+    public int maxHealth = 1;
+    public int currentHealth;
+
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
+      
+        currentHealth = maxHealth;
+
     }
 
     void Update()
@@ -126,4 +133,23 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 
+
+
+
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+        if (currentHealth <= 0)
+        {
+            Death();
+            Debug.Log("Player is dead!");
+        }
+    }
+
+    void Death()
+    {
+     
+    }
+
 }
+
