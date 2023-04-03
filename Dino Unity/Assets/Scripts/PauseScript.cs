@@ -11,14 +11,21 @@ public class PauseScript : MonoBehaviour
     public Canvas PauseMenuUI;
     public bool paused = false;
     public bool pausedMovement;
+    PlayerMovement playerMovement;
+
 
     void Start()
     {
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         PauseMenuUI.enabled = false;
     }
 
     void Update()
     {
+        if (playerMovement.isDead)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (paused == true)
