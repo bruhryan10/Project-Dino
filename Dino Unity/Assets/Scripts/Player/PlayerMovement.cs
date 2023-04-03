@@ -88,6 +88,10 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed -= 2;
             inTar = true;
         }
+        if(collision.collider.tag == "KillBox")
+        {
+            Die();
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -131,6 +135,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
+        Debug.Log("Death");
         //death UI code here
         //Destroy(gameObject); commented for testing purposes
     }
