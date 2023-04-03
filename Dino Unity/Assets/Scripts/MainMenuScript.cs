@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+using UnityEngine.UI;
+using System;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -14,20 +17,22 @@ public class MainMenuScript : MonoBehaviour
     Vector3 Velocity;
     Vector3 Jump;
     private Rigidbody2D player;
-
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
-
-
-
     public Animator playerAnim;
+
+    public Canvas Menu;
+    public UnityEngine.UI.Image CreditsIMG;
+    public UnityEngine.UI.Image ControlsIMG;
+
 
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
-
+        CreditsIMG.enabled = false;
+        ControlsIMG.enabled = false;
     }
 
     void Update()
@@ -66,7 +71,19 @@ public class MainMenuScript : MonoBehaviour
 
     public void Credits()
     {
-
+        if (ControlsIMG.IsActive())
+        {
+            ControlsIMG.enabled = false;
+        }
+        CreditsIMG.enabled = !CreditsIMG.IsActive();
+    }
+    public void Controls()
+    {
+        if (CreditsIMG.IsActive())
+        {
+            CreditsIMG.enabled = false;
+        }
+        ControlsIMG.enabled = !ControlsIMG.IsActive();
     }
     private void OnDrawGizmos()
     {
