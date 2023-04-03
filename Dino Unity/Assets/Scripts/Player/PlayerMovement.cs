@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     public int maxHealth = 1;
     public int currentHealth;
 
+    public float speed;
+    private bool bulldoze = false;
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
@@ -73,7 +75,8 @@ public class PlayerMovement : MonoBehaviour
             
         }
 
-        
+       
+
 
     }
 
@@ -91,6 +94,14 @@ public class PlayerMovement : MonoBehaviour
         if(collision.collider.tag == "KillBox")
         {
             Die();
+        }
+
+
+        // Power up stuff  // needs work 
+        if (collision.collider.tag == "BulldozePowerUp")
+        {
+            bulldoze = true;
+            Destroy(collision.gameObject); // destroy the power-up object
         }
     }
 
