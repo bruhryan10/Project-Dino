@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private bool inTar;
     public float tarTime;
     public float tarLimit;
+    public GameObject Player;
 
 
 
@@ -42,6 +43,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
+        //Uncomment when ready to test, this blocks the camera from going backwards which will be a wall and it would look weird if you couldnt go left and there was grass lol
+        //if (player.transform.position.x > 0.94f) 
+        //{
+        //    Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
+
+        //}
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         direction = Input.GetAxis("Horizontal");
 
@@ -124,7 +131,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
+        //death UI code here
+        //Destroy(gameObject); commented for testing purposes
     }
 
     private void OnDrawGizmos()
