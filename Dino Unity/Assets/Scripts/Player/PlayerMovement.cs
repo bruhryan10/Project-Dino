@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     public float tarTime;
     public float tarLimit;
     public GameObject Player;
-    public bool isDead;
 
 
 
@@ -136,10 +135,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
-        isDead = true;
         Debug.Log("Death");
-        //death animation here
         //death UI code here
+        //Destroy(gameObject); commented for testing purposes
     }
 
     private void OnDrawGizmos()
