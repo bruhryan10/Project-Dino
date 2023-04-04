@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Icicle
+  - TarPit
+  - KillBox
   layers:
   - Default
   - TransparentFX
@@ -42,4 +44,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: TarPit
+    uniqueID: 4271619567
+    locked: 0
+  - name: GroundBackground
+    uniqueID: 4288065297
+    locked: 0
+  - name: Grounds
+    uniqueID: 1184531971
+    locked: 0
+  - name: Prop
+    uniqueID: 65030707
+    locked: 0
+  - name: Player
+    uniqueID: 428924389
     locked: 0

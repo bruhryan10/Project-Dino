@@ -59,6 +59,16 @@ public class Hazards : MonoBehaviour
 
     }
 
+    public void TarPit()
+    {
+
+        if (this.gameObject.tag == "TarPit")
+        {
+
+        }
+
+    }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if(this.gameObject.tag == "Icicle")
