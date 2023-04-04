@@ -55,24 +55,28 @@ public class PlayerMovement : MonoBehaviour
 
         Jump = Vector3.zero;
         Velocity = Vector3.zero;
-        if (direction > 0f)
+        if(!inTar && !isDead)
         {
-            playerAnim.Play("DinoWalk_Right");
-            player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
-            //Velocity += Vector3.right;
-        }
-        if (direction < 0f)
-        {
-            player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
-            //Velocity += Vector3.left;
-        }
-        if (Input.GetKeyDown(KeyCode.W) && isTouchingGround)
-        {
+            if (direction > 0f)
+            {
+                playerAnim.Play("DinoWalk_Right");
+                player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
+                //Velocity += Vector3.right;
+            }
+            if (direction < 0f)
+            {
+                player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
+                //Velocity += Vector3.left;
+            }
+            if (Input.GetKeyDown(KeyCode.W) && isTouchingGround)
+            {
 
-            player.velocity = new Vector2(player.velocity.x, jumpSpeed);
-            //Jump += Vector3.up;
-            
+                player.velocity = new Vector2(player.velocity.x, jumpSpeed);
+                //Jump += Vector3.up;
+
+            }
         }
+        
 
         
 
@@ -87,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         if(collision.collider.tag == "TarPit")
         {
             moveSpeed -= 2;
-            inTar = true;
+            
         }
         if(collision.collider.tag == "KillBox")
         {
@@ -107,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         if(collision.collider.tag == "TarPit")
         {
             moveSpeed += 2;
-            inTar = false;
+            
             tarTime = 0;
         }
     }
@@ -116,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(tarTime > tarLimit)
         {
+            inTar = true;
             GetComponent<Collider2D>().enabled = false;
             GetComponent<Rigidbody2D>().gravityScale = 0.1f;
             StartCoroutine(TarFalling());
@@ -146,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        //Gizmos.DrawWireCube(groundCheck.position, new Vector3(1, 0.5f, 1));
     }
 
 
