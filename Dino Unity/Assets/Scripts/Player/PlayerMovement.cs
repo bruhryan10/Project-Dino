@@ -147,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        //Gizmos.DrawWireCube(groundCheck.position, new Vector3(1, 0.5f, 1));
+        //Gizmos.DrawWireCube(groundCheck.position, new Vector3(0.5f, 1f, 1));
     }
 
 
