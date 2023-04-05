@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         //}
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         direction = Input.GetAxis("Horizontal");
-
+        //Debug.Log(isTouchingGround);
         Jump = Vector3.zero;
         Velocity = Vector3.zero;
         if(!inTar && !isDead)
