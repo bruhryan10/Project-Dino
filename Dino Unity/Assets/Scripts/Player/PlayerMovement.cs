@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     public bool isDead;
 
 
-
     public Animator playerAnim;
 
 
@@ -61,18 +60,15 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerAnim.Play("DinoWalk_Right");
                 player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
-                //Velocity += Vector3.right;
             }
             if (direction < 0f)
             {
                 player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
-                //Velocity += Vector3.left;
             }
             if (Input.GetKeyDown(KeyCode.W) && isTouchingGround)
             {
 
                 player.velocity = new Vector2(player.velocity.x, jumpSpeed);
-                //Jump += Vector3.up;
 
             }
         }
