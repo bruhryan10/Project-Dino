@@ -113,6 +113,14 @@ public class PlayerMovement : MonoBehaviour
             tarTime = 0;
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            //Debug.Log("dsf");
+            Die();
+        }
+    }
 
     public void TarPitTimer()
     {
