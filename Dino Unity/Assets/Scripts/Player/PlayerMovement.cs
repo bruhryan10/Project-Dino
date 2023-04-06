@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
       
         currentHealth = maxHealth;
 
+       
     }
 
     void Update()
@@ -63,11 +64,12 @@ public class PlayerMovement : MonoBehaviour
             }
             if (direction < 0f)
             {
+                playerAnim.Play("DinoWalk_left");
                 player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
             }
             if (Input.GetKeyDown(KeyCode.W) && isTouchingGround)
             {
-
+              
                 player.velocity = new Vector2(player.velocity.x, jumpSpeed);
 
             }
@@ -159,13 +161,14 @@ public class PlayerMovement : MonoBehaviour
         if (currentHealth <= 0)
         {
             Death();
+            playerAnim.SetTrigger("Death");
             Debug.Log("Player is dead!");
         }
     }
 
     void Death()
     {
-     
+       
     }
 
 }
