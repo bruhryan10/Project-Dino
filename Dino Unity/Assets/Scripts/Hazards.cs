@@ -45,7 +45,7 @@ public class Hazards : MonoBehaviour
                 Debug.DrawLine(transform.position, hitInfo.point, Color.red);
                 if (hitInfo.collider.CompareTag("Player"))
                 {
-                    GetComponent<Rigidbody2D>().gravityScale = 1;
+                    GetComponent<Rigidbody2D>().gravityScale = 2;
                     Debug.Log("drop");
                 }
             }
