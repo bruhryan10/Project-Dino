@@ -8,6 +8,7 @@ TagManager:
   - Icicle
   - TarPit
   - KillBox
+  - Water
   layers:
   - Default
   - TransparentFX
