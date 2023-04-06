@@ -74,7 +74,6 @@ public class RandomTerrainPlains : MonoBehaviour
     public bool loadArea3;
     public bool loadArea4;
     public bool loadArea5;
-    public float fps;
     private void Awake()
     {
         AreaOneOne.SetActive(false);
@@ -143,8 +142,6 @@ public class RandomTerrainPlains : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(fps);
-        fps = 1 / Time.deltaTime;
         if (player.transform.position.x > 76 && loadArea1 == true)
         {
             loadNumber = Random.Range(1, 11);

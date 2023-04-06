@@ -14,10 +14,12 @@ public class AiController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
 
-
+    PlayerMovement playerMovement;
     public int Damage = 1;
+    
     void Start()
     {
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         player = GameObject.FindWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -57,15 +59,16 @@ public class AiController : MonoBehaviour
         // Check if the collision is with the player
         if (collision.gameObject.CompareTag("Player"))
         {
+            playerMovement.Die();
             // Reduce the player's health by the damage amount
-            PlayerMovement playerHealth = collision.gameObject.GetComponent<PlayerMovement>();
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(Damage);
+            //PlayerMovement playerHealth = collision.gameObject.GetComponent<PlayerMovement>();
+            //if (playerHealth != null)
+            //{
+            //    playerHealth.TakeDamage(Damage);
 
-                Destroy(collision.gameObject);
-                Debug.Log("Player got stomped");
-            }
+            //    Destroy(collision.gameObject);
+            //    Debug.Log("Player got stomped");
+            //}
         }
 
     }

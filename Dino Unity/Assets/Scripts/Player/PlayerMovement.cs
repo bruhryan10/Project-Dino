@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
+    public float fps;
 
     public Vector3 moveDir;
-    public float moveSpeed = 8f;
-    public float jumpHeight = 5f;
+    public float moveSpeed = 7f;
     public float jumpSpeed = 5f;
     private float direction = 0f;
     Vector3 Velocity;
@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     public float tarLimit;
     public GameObject Player;
     public bool isDead;
-
 
     public Animator playerAnim;
 
@@ -43,9 +42,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        fps = 1 / Time.deltaTime;
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
         //Uncomment when ready to test, this blocks the camera from going backwards which will be a wall and it would look weird if you couldnt go left and there was grass lol
-        //if (player.transform.position.x > 0.94f) 
+        //if (player.transform.position.x > 0.94f && player.transform.position.x !< 667f)
         //{
         //    Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
 
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if(collision.collider.tag == "TarPit")
         {
-            moveSpeed -= 2;
+            moveSpeed -= 3;
             
         }
         if(collision.collider.tag == "KillBox")
@@ -108,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.collider.tag == "TarPit")
         {
-            moveSpeed += 2;
+            moveSpeed += 3;
             
             tarTime = 0;
         }
@@ -142,7 +142,6 @@ public class PlayerMovement : MonoBehaviour
         isDead = true;
         Debug.Log("Death");
         //death animation here
-        //death UI code here
     }
 
     private void OnDrawGizmos()

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    public float speedBoost = 5f;
-    public float jumpBoost = 5f;
-    public float duration = 10f;
+    public float speedBoost = 2f;
+    public float jumpBoost = 2f;
+    public float duration = 5f;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,7 +14,7 @@ public class PowerUp : MonoBehaviour
         {
             PlayerMovement player = other.GetComponent<PlayerMovement>();
             player.moveSpeed += speedBoost;
-            player.jumpHeight+= jumpBoost;
+            player.jumpSpeed+= jumpBoost;
             StartCoroutine(PowerUpTimer(player));
             Destroy(gameObject);
         }
@@ -24,7 +24,7 @@ public class PowerUp : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         player.moveSpeed -= speedBoost;
-        player.jumpHeight -= jumpBoost;
+        player.jumpSpeed -= jumpBoost;
     }
     // Start is called before the first frame update
     void Start()
