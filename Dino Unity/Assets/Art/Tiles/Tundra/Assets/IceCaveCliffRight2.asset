@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IceCaveCliffRight2
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: 1b469d96daf68004ea3b4446b57b246f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8980392, g: 0.9098039, b: 0.94509804, a: 1}
   m_Transform:
     e00: 1
     e01: 0
