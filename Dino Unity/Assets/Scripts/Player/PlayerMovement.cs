@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Player;
     public bool isDead;
 
+    public bool endLevel;
     public Animator playerAnim;
 
 
@@ -36,20 +37,20 @@ public class PlayerMovement : MonoBehaviour
         player = GetComponent<Rigidbody2D>();
       
         currentHealth = maxHealth;
-
+        endLevel = false;
        
     }
 
     void Update()
     {
         fps = 1 / Time.deltaTime;
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
-        //Uncomment when ready to test, this blocks the camera from going backwards which will be a wall and it would look weird if you couldnt go left and there was grass lol
-        //if (player.transform.position.x > 0.94f && player.transform.position.x !< 667f)
-        //{
-        //    Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
+        //Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
+        //Uncomment when ready to test or done
+        if (player.transform.position.x > -3.1f && player.transform.position.x !< 668f)
+        {
+            Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
 
-        //}
+        }
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         direction = Input.GetAxis("Horizontal");
         //Debug.Log(isTouchingGround);
@@ -67,16 +68,20 @@ public class PlayerMovement : MonoBehaviour
                 playerAnim.Play("DinoWalk_left");
                 player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
             }
-            if (Input.GetKeyDown(KeyCode.W) && isTouchingGround)
+            if (Input.GetKeyDown(KeyCode.W) && isTouchingGround || Input.GetKeyDown(KeyCode.UpArrow) && isTouchingGround)
             {
               
                 player.velocity = new Vector2(player.velocity.x, jumpSpeed);
 
             }
+            if (player.transform.position.x > 676f)
+            {
+                endLevel = true;
+            }
         }
-        
 
-        
+
+
 
     }
 
@@ -94,6 +99,11 @@ public class PlayerMovement : MonoBehaviour
         if(collision.collider.tag == "KillBox")
         {
             Die();
+        }
+        if (collision.collider.tag == "Water")
+        {
+            GetComponent<Rigidbody2D>().gravityScale = 0.1f;
+            StartCoroutine(TarFalling());
         }
     }
 
