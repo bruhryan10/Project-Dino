@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if (direction < 0f)
             {
-                playerAnim.Play("DinoWalk_left");
+                playerAnim.Play("DinoWalk_Left");
                 player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
             }
             if (Input.GetKeyDown(KeyCode.W) && isTouchingGround || Input.GetKeyDown(KeyCode.UpArrow) && isTouchingGround)

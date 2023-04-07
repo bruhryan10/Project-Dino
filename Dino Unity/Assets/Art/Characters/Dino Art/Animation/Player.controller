@@ -61,8 +61,8 @@ AnimatorController:
   m_Name: Player
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: DeathTrigger
-    m_Type: 9
+  - m_Name: DinoWalk_Right
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
@@ -91,10 +91,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -2110056917552289935}
-    m_Position: {x: 360, y: 10, z: 0}
+    m_Position: {x: 400, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7845447877390861400}
-    m_Position: {x: 340, y: 90, z: 0}
+    m_Position: {x: 420, y: 110, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

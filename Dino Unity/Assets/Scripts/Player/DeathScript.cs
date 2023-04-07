@@ -12,6 +12,9 @@ public class DeathScript : MonoBehaviour
     PlayerMovement playerMovement;
     public bool isNotDead;
 
+
+    public Animator playerAnim;
+
     void Start()
     {
         deathUI.enabled = false;
@@ -24,6 +27,7 @@ public class DeathScript : MonoBehaviour
         if (playerMovement.isDead && isNotDead == false)
         {
             IsDead();
+            playerAnim.SetTrigger("Death");
         }
     }
 
