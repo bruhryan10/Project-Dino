@@ -21,7 +21,7 @@ public class EnemyScript : MonoBehaviour
         }
         if (startChase)
         {
-            Enemy.transform.position = new Vector3(transform.position.x + (7 * Time.deltaTime), transform.position.y);
+            Enemy.transform.position = new Vector3(transform.position.x + (6 * Time.deltaTime), transform.position.y);
         }
 
         

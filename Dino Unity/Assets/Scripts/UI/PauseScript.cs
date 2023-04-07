@@ -22,6 +22,10 @@ public class PauseScript : MonoBehaviour
 
     void Update()
     {
+        if (playerMovement.endLevel)
+        {
+            return;
+        }
         if (playerMovement.isDead)
         {
             return;
