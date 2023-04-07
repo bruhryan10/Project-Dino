@@ -9,6 +9,10 @@ TagManager:
   - TarPit
   - KillBox
   - Water
+  - Enemy
+  - Shoes
+  - Meat
+  - Riding
   layers:
   - Default
   - TransparentFX
