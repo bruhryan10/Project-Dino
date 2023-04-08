@@ -21,6 +21,7 @@ public class MainMenuScript : MonoBehaviour
     private bool isTouchingGround;
     public Animator playerAnim;
 
+    public Canvas DiffUI;
     public Canvas Menu;
     public UnityEngine.UI.Image CreditsIMG;
     public UnityEngine.UI.Image ControlsIMG;
@@ -31,6 +32,7 @@ public class MainMenuScript : MonoBehaviour
         player = GetComponent<Rigidbody2D>();
         CreditsIMG.enabled = false;
         ControlsIMG.enabled = false;
+        DiffUI.enabled = false;
     }
 
     void Update()
@@ -61,9 +63,17 @@ public class MainMenuScript : MonoBehaviour
     {
         Application.Quit();
     }
-    public void loadGame()
+    public void loadEasy()
     {
         SceneManager.LoadScene("Plains1");
+    }
+    public void loadHard()
+    {
+        SceneManager.LoadScene("PlainsHard");
+    }
+    public void DifficultyUI()
+    {
+        DiffUI.enabled = true;
     }
 
     public void Credits()
