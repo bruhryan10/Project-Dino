@@ -280,10 +280,10 @@ public class RandomTerrainPlains : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            SceneManager.LoadScene("Plains1");
-        }
+        //if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    SceneManager.LoadScene("Plains1");
+        //}
     }
     public void LoadAreaOneOne()
     {
