@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float fps;
-
+    public bool delayEnemy;
     public Vector3 moveDir;
     public float moveSpeed = 7f;
     public float jumpSpeed = 5f;

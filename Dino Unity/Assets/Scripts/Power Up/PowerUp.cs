@@ -95,10 +95,12 @@ public class PowerUp : MonoBehaviour
     {
         powerUp.transform.position = new Vector3(-66, 13);
         startDelay = true;
+        playerMovement.delayEnemy = true;
     }
     private void endDelay()
     {
         startDelay = false;
+        playerMovement.delayEnemy = false;
         duration = 5f;
         Destroy(gameObject);
     }

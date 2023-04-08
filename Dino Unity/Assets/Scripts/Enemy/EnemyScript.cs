@@ -7,17 +7,16 @@ public class EnemyScript : MonoBehaviour
     public float startTimer;
     public bool startChase;
     public GameObject Enemy;
-    PowerUp powerUp;
+    PlayerMovement playerMovement;
     void Start()
     {
-        //powerUp = GameObject.FindGameObjectWithTag("Meat").GetComponent<PowerUp>();
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         startTimer = 5f;
     }
 
     void Update()
     {
-        //powerUp = GameObject.FindGameObjectWithTag("Meat").GetComponent<PowerUp>();
-        if (powerUp.startDelay)
+        if (playerMovement.delayEnemy)
         {
             return;
         }
