@@ -53,10 +53,16 @@ public class DeathScript : MonoBehaviour
         IsNotDead();
         Application.Quit();
     }
-    public void Restart()
+    public void RestartEasy()
     {
         IsNotDead();
         SceneManager.LoadScene("Plains1");
+
+    }
+    public void RestartHard()
+    {
+        IsNotDead();
+        SceneManager.LoadScene("PlainsHard");
 
     }
 }

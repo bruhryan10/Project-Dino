@@ -69,10 +69,16 @@ public class PauseScript : MonoBehaviour
         resumeGame();
         Application.Quit();
     }
-    public void Restart()
+    public void RestartEasy()
     {
         resumeGame();
         SceneManager.LoadScene("Plains1");
+
+    }
+    public void RestartHard()
+    {
+        resumeGame();
+        SceneManager.LoadScene("PlainsHard");
 
     }
 }

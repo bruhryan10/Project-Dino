@@ -5,10 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
 using System;
-
 public class MainMenuScript : MonoBehaviour
 {
-
     public Vector3 moveDir;
     public float moveSpeed = 8f;
     public float jumpHeight = 5f;

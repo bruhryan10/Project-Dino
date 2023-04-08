@@ -36,9 +36,14 @@ public class PlainsUI : MonoBehaviour
             EndUI.enabled = true;
         }
     }
-    public void LoadTundra()
+    public void LoadTundraEasy()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Tundra1");
+    }
+    public void LoadTundraHard()
+    {
+        Time.timeScale = 1f;
+        //SceneManager.LoadScene("Tundra1");
     }
 }
