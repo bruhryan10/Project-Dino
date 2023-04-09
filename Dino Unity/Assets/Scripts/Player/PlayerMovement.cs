@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public float tarLimit;
     public GameObject Player;
     public bool isDead;
+    public bool isDying;
 
     public bool endLevel;
     public Animator playerAnim;
@@ -38,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
       
         currentHealth = maxHealth;
         endLevel = false;
+        isDying = false;
        
     }
 
@@ -46,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         fps = 1 / Time.deltaTime;
         //Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
         //Uncomment when ready to test or done
-        if (player.transform.position.x > -3.1f && player.transform.position.x !< 668f)
+        if (player.transform.position.x > -3.1f && player.transform.position.x !< 668f && !isDying)
         {
             Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
 
@@ -96,15 +98,8 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed -= 3;
             
         }
-        if(collision.collider.tag == "KillBox")
-        {
-            Die();
-        }
-        if (collision.collider.tag == "Water")
-        {
-            GetComponent<Rigidbody2D>().gravityScale = 0.1f;
-            StartCoroutine(TarFalling());
-        }
+        
+        
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -130,6 +125,16 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("dsf");
             Die();
         }
+        if(collision.tag == "Water")
+        {
+            GetComponent<Collider2D>().enabled = false;
+            GetComponent<Rigidbody2D>().gravityScale = 0.2f;
+            StartCoroutine(TarFalling());
+        }
+        if(collision.tag == "KillBox")
+        {
+            StartCoroutine(TarFalling());
+        }
     }
 
     public void TarPitTimer()
@@ -149,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator TarFalling()
     {
-        
+        isDying = true;
         yield return new WaitForSecondsRealtime(2);
         Die();
 
