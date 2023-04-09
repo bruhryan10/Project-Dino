@@ -23,7 +23,7 @@ public class DeathScript : MonoBehaviour
         if (playerMovement.isDead && isNotDead == false)
         {
             IsDead();
-            playerAnim.SetTrigger("Death");
+            playerAnim.Play("DeathTwo");
         }
     }
 
