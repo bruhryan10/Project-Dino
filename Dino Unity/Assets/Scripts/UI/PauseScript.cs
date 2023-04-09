@@ -8,10 +8,10 @@ using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour
 {
+    PlayerMovement playerMovement;
     public Canvas PauseMenuUI;
     public bool paused = false;
     public bool pausedMovement;
-    PlayerMovement playerMovement;
 
 
     void Start()
@@ -23,23 +23,15 @@ public class PauseScript : MonoBehaviour
     void Update()
     {
         if (playerMovement.endLevel)
-        {
             return;
-        }
         if (playerMovement.isDead)
-        {
             return;
-        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (paused == true)
-            {
                 resumeGame();
-            }
             else
-            {
                 pauseGame();
-            }
         }
     }
 
@@ -62,7 +54,6 @@ public class PauseScript : MonoBehaviour
     {
         resumeGame();
         SceneManager.LoadScene("Main Menu");
-
     }
     public void QuitGame()
     {
@@ -72,13 +63,11 @@ public class PauseScript : MonoBehaviour
     public void RestartEasy()
     {
         resumeGame();
-        SceneManager.LoadScene("Plains1");
-
+        SceneManager.LoadScene("PlainsEasy");
     }
     public void RestartHard()
     {
         resumeGame();
         SceneManager.LoadScene("PlainsHard");
-
     }
 }

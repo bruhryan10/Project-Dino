@@ -7,25 +7,23 @@ using UnityEngine.UI;
 using System;
 public class MainMenuScript : MonoBehaviour
 {
+    Vector3 Velocity;
+    Vector3 Jump;
+    public Canvas DiffUI;
+    public Canvas Menu;
+    public UnityEngine.UI.Image CreditsIMG;
+    public UnityEngine.UI.Image ControlsIMG;
+    private Rigidbody2D player;
+    public Transform groundCheck;
+    public LayerMask groundLayer;
+    public float groundCheckRadius;
+    private bool isTouchingGround;
+    public Animator playerAnim;
     public Vector3 moveDir;
     public float moveSpeed = 8f;
     public float jumpHeight = 5f;
     public float jumpSpeed = 5f;
     private float direction = 0f;
-    Vector3 Velocity;
-    Vector3 Jump;
-    private Rigidbody2D player;
-    public Transform groundCheck;
-    public float groundCheckRadius;
-    public LayerMask groundLayer;
-    private bool isTouchingGround;
-    public Animator playerAnim;
-
-    public Canvas DiffUI;
-    public Canvas Menu;
-    public UnityEngine.UI.Image CreditsIMG;
-    public UnityEngine.UI.Image ControlsIMG;
-
 
     void Start()
     {
@@ -49,14 +47,11 @@ public class MainMenuScript : MonoBehaviour
         }
         if (direction < 0f)
         {
+            playerAnim.Play("DinoWalk_Left");
             player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
         }
         if (Input.GetKeyDown(KeyCode.W) && isTouchingGround || Input.GetKeyDown(KeyCode.UpArrow) && isTouchingGround)
-        {
-
             player.velocity = new Vector2(player.velocity.x, jumpSpeed);
-
-        }
     }
 
     public void QuitGame()
@@ -65,7 +60,7 @@ public class MainMenuScript : MonoBehaviour
     }
     public void loadEasy()
     {
-        SceneManager.LoadScene("Plains1");
+        SceneManager.LoadScene("PlainsEasy");
     }
     public void loadHard()
     {

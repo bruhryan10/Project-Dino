@@ -7,36 +7,20 @@ public class Hazards : MonoBehaviour
 {
     
     public float Idistance = 20f;
-    
-    
-    
-    
-    
-    
-    
 
-    // Start is called before the first frame update
     void Start()
     {
         Physics2D.queriesStartInColliders = false;
-        
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-
         Icicles();
-        
-
-        
-
     }
 
     public void Icicles()
     {
-
         if(this.gameObject.tag == "Icicle")
         {
             RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.up), Idistance);
@@ -50,11 +34,7 @@ public class Hazards : MonoBehaviour
                 }
             }
             else
-            {
                 Debug.DrawLine(transform.position, transform.position + transform.TransformDirection(Vector2.up) * Idistance, Color.green);
-
-            }
-            
         }
 
     }
@@ -75,19 +55,13 @@ public class Hazards : MonoBehaviour
         {
             if (collision.collider.tag == "Ground")
             {
-
                 IcicleBreak();
-
             }
         }
     }
 
     public void IcicleBreak()
     {
-
-        //play shatter animation
         Destroy(gameObject);
-
-
     }
 }

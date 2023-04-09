@@ -1,43 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    public float fps;
-    public bool delayEnemy;
-    public Vector3 moveDir;
-    public float moveSpeed = 7f;
-    public float jumpSpeed = 5f;
-    private float direction = 0f;
     Vector3 Velocity;
     Vector3 Jump;
-    private Rigidbody2D player;
-
+    public float fps;
+    public GameObject Player;
+    public Animator playerAnim;
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
+    public Vector3 moveDir;
+    public float moveSpeed = 7f;
+    public float jumpSpeed = 5f;
+    private float direction = 0f;
+    private Rigidbody2D player;
     private bool inTar;
     public float tarTime;
     public float tarLimit;
-    public GameObject Player;
     public bool isDead;
     public bool isDying;
-
+    public bool delayEnemy;
     public bool endLevel;
-    public Animator playerAnim;
-
-
-    public int maxHealth = 1;
-    public int currentHealth;
 
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
-      
-        currentHealth = maxHealth;
         endLevel = false;
         isDying = false;
        
@@ -46,16 +39,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         fps = 1 / Time.deltaTime;
-        //Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
-        //Uncomment when ready to test or done
         if (player.transform.position.x > -3.1f && player.transform.position.x !< 668f && !isDying)
-        {
             Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
-
-        }
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         direction = Input.GetAxis("Horizontal");
-        //Debug.Log(isTouchingGround);
+
         Jump = Vector3.zero;
         Velocity = Vector3.zero;
         if(!inTar && !isDead)
@@ -71,15 +59,9 @@ public class PlayerMovement : MonoBehaviour
                 player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
             }
             if (Input.GetKeyDown(KeyCode.W) && isTouchingGround || Input.GetKeyDown(KeyCode.UpArrow) && isTouchingGround)
-            {
-              
                 player.velocity = new Vector2(player.velocity.x, jumpSpeed);
-
-            }
             if (player.transform.position.x > 676f)
-            {
                 endLevel = true;
-            }
         }
 
 
@@ -96,7 +78,6 @@ public class PlayerMovement : MonoBehaviour
         if(collision.collider.tag == "TarPit")
         {
             moveSpeed -= 3;
-            
         }
         
         
@@ -114,17 +95,13 @@ public class PlayerMovement : MonoBehaviour
         if(collision.collider.tag == "TarPit")
         {
             moveSpeed += 3;
-            
             tarTime = 0;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
-        {
-            //Debug.Log("dsf");
             Die();
-        }
         if(collision.tag == "Water")
         {
             GetComponent<Collider2D>().enabled = false;
@@ -132,9 +109,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(TarFalling());
         }
         if(collision.tag == "KillBox")
-        {
             StartCoroutine(TarFalling());
-        }
     }
 
     public void TarPitTimer()
@@ -148,9 +123,7 @@ public class PlayerMovement : MonoBehaviour
             
         }
         else
-        {
             tarTime += Time.deltaTime;
-        }
     }
     IEnumerator TarFalling()
     {
@@ -164,34 +137,12 @@ public class PlayerMovement : MonoBehaviour
     {
         isDead = true;
         Debug.Log("Death");
-        //death animation here
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        //Gizmos.DrawWireCube(groundCheck.position, new Vector3(0.5f, 1f, 1));
     }
-
-
-
-
-    public void TakeDamage(int damageAmount)
-    {
-        currentHealth -= damageAmount;
-        if (currentHealth <= 0)
-        {
-            Death();
-            playerAnim.SetTrigger("Death");
-            Debug.Log("Player is dead!");
-        }
-    }
-
-    void Death()
-    {
-       
-    }
-
 }
 

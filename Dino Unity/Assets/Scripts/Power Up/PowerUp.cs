@@ -24,25 +24,19 @@ public class PowerUp : MonoBehaviour
         {
             duration -= Time.deltaTime;
             if (duration < 0)
-            {
                 endJump();
-            }
         }
         if (startSpeed)
         {
             duration -= Time.deltaTime;
             if (duration < 0)
-            {
                 endSpeed();
-            }
         }
         if (startDelay)
         {
             duration -= Time.deltaTime;
             if (duration < 0)
-            {
                 endDelay();
-            }
         }
 
     }
@@ -71,6 +65,18 @@ public class PowerUp : MonoBehaviour
         startSpeed = true;
         playerMovement.moveSpeed += speedBoost;
     }
+    private void JumpUp()
+    {
+        powerUp.transform.position = new Vector3(-66, 13);
+        startJump = true;
+        playerMovement.jumpSpeed += jumpBoost;
+    }
+    private void DelayEnemy()
+    {
+        powerUp.transform.position = new Vector3(-66, 13);
+        startDelay = true;
+        playerMovement.delayEnemy = true;
+    }
     private void endSpeed()
     {
         startSpeed = false;
@@ -78,24 +84,12 @@ public class PowerUp : MonoBehaviour
         playerMovement.moveSpeed -= speedBoost;
         Destroy(gameObject);
     }
-    private void JumpUp()
-    {
-        powerUp.transform.position = new Vector3(-66, 13);
-        startJump = true;
-        playerMovement.jumpSpeed += jumpBoost;
-    }
     private void endJump()
     {
         startJump = false;
         duration = 5f;
         playerMovement.jumpSpeed -= jumpBoost;
         Destroy(gameObject);
-    }
-    private void DelayEnemy()
-    {
-        powerUp.transform.position = new Vector3(-66, 13);
-        startDelay = true;
-        playerMovement.delayEnemy = true;
     }
     private void endDelay()
     {

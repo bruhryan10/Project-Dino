@@ -7,19 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class DeathScript : MonoBehaviour
 {
-
-    public Canvas deathUI;
     PlayerMovement playerMovement;
-    public bool isNotDead;
-
-
     public Animator playerAnim;
+    public Canvas deathUI;
+    public bool isNotDead;
 
     void Start()
     {
         deathUI.enabled = false;
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-
     }
 
     void Update()
@@ -46,7 +42,6 @@ public class DeathScript : MonoBehaviour
     {
         IsNotDead();
         SceneManager.LoadScene("Main Menu");
-
     }
     public void QuitGame()
     {
@@ -56,13 +51,11 @@ public class DeathScript : MonoBehaviour
     public void RestartEasy()
     {
         IsNotDead();
-        SceneManager.LoadScene("Plains1");
-
+        SceneManager.LoadScene("PlainsEasy");
     }
     public void RestartHard()
     {
         IsNotDead();
         SceneManager.LoadScene("PlainsHard");
-
     }
 }
