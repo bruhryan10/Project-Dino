@@ -5,7 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class RandomTerrainPlains : MonoBehaviour
 {
+
     public GameObject player;
+
+    //powerups
+    public float powerNumber;
+    public GameObject speedUp;
+    public GameObject jumpUp;
+    public GameObject delayUp;
 
     public GameObject AreaOneOne;
     public GameObject AreaOneTwo;
@@ -289,11 +296,27 @@ public class RandomTerrainPlains : MonoBehaviour
     {
         AreaOneOne.SetActive(true);
         AreaOneOne.transform.position = new Vector3(89, 50);
+        powerNumber = Random.Range(1, 4);
+        Debug.Log(powerNumber);
+        if (powerNumber == 1)
+            Instantiate(speedUp).transform.position = new Vector3(125.5f, 23.5f);
+        if (powerNumber == 2)
+            Instantiate(jumpUp).transform.position = new Vector3(125.5f, 23.5f);
+        if (powerNumber == 3)
+            Instantiate(delayUp).transform.position = new Vector3(125.5f, 23.5f);
     }
     public void LoadAreaOneTwo()
     {
         AreaOneTwo.SetActive(true);
         AreaOneTwo.transform.position = new Vector3(89, 50);
+        powerNumber = Random.Range(1, 4);
+        Debug.Log(powerNumber);
+        if (powerNumber == 1)
+            Instantiate(speedUp).transform.position = new Vector3(149f, 17);
+        if (powerNumber == 2)
+            Instantiate(jumpUp).transform.position = new Vector3(149f, 17);
+        if (powerNumber == 3)
+            Instantiate(delayUp).transform.position = new Vector3(149f, 17);
     }
     public void LoadAreaOneThree()
     {
@@ -309,16 +332,40 @@ public class RandomTerrainPlains : MonoBehaviour
     {
         AreaOneFive.SetActive(true);
         AreaOneFive.transform.position = new Vector3(89, 50);
+        powerNumber = Random.Range(1, 4);
+        Debug.Log(powerNumber);
+        if (powerNumber == 1)
+            Instantiate(speedUp).transform.position = new Vector3(142.5f, 26);
+        if (powerNumber == 2)
+            Instantiate(jumpUp).transform.position = new Vector3(142.5f, 26);
+        if (powerNumber == 3)
+            Instantiate(delayUp).transform.position = new Vector3(142.5f, 26);
     }
     public void LoadAreaOneOneV()
     {
         AreaOneOneV.SetActive(true);
         AreaOneOneV.transform.position = new Vector3(89, 50);
+        powerNumber = Random.Range(1, 4);
+        Debug.Log(powerNumber);
+        if (powerNumber == 1)
+            Instantiate(speedUp).transform.position = new Vector3(142.5f, 26);
+        if (powerNumber == 2)
+            Instantiate(jumpUp).transform.position = new Vector3(142.5f, 26);
+        if (powerNumber == 3)
+            Instantiate(delayUp).transform.position = new Vector3(142.5f, 26);
     }
     public void LoadAreaOneTwoV()
     {
         AreaOneTwoV.SetActive(true);
         AreaOneTwoV.transform.position = new Vector3(89, 50);
+        powerNumber = Random.Range(1, 4);
+        Debug.Log(powerNumber);
+        if (powerNumber == 1)
+            Instantiate(speedUp).transform.position = new Vector3(150, 17);
+        if (powerNumber == 2)
+            Instantiate(jumpUp).transform.position = new Vector3(150, 17);
+        if (powerNumber == 3)
+            Instantiate(delayUp).transform.position = new Vector3(150, 17);
     }
     public void LoadAreaOneThreeV()
     {
@@ -329,6 +376,14 @@ public class RandomTerrainPlains : MonoBehaviour
     {
         AreaOneFourV.SetActive(true);
         AreaOneFourV.transform.position = new Vector3(89, 50);
+        powerNumber = Random.Range(1, 4);
+        Debug.Log(powerNumber);
+        if (powerNumber == 1)
+            Instantiate(speedUp).transform.position = new Vector3(146, 21);
+        if (powerNumber == 2)
+            Instantiate(jumpUp).transform.position = new Vector3(146, 21);
+        if (powerNumber == 3)
+            Instantiate(delayUp).transform.position = new Vector3(146, 21);
     }
     public void LoadAreaOneFiveV()
     {
