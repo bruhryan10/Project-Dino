@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
         Jump = Vector3.zero;
         Velocity = Vector3.zero;
-        if(!inTar && !isDead)
+        if(!inTar && !isDead && !isDying)
         {
             if (direction > 0f)
             {
