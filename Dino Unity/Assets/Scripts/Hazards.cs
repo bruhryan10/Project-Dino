@@ -7,10 +7,12 @@ public class Hazards : MonoBehaviour
 {
     
     public float Idistance = 20f;
+    public Animator animator;
 
     void Start()
     {
         Physics2D.queriesStartInColliders = false;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -62,6 +64,12 @@ public class Hazards : MonoBehaviour
 
     public void IcicleBreak()
     {
-        Destroy(gameObject);
+        GetComponent<Rigidbody2D>().gravityScale = 0;
+        GetComponent<PolygonCollider2D>().enabled = false;
+        animator.Play("Break");
+        //Destroy(gameObject);
     }
+
+
+
 }
