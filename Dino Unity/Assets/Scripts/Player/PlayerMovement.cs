@@ -27,6 +27,12 @@ public class PlayerMovement : MonoBehaviour
     public bool isDying;
     public bool delayEnemy;
     public bool endLevel;
+    public float speedBoost = 2f;
+    public float jumpBoost = 2f;
+    public float duration = 5f;
+    public bool startJump;
+    public bool startSpeed;
+    public bool startDelay;
 
     void Start()
     {
@@ -48,6 +54,25 @@ public class PlayerMovement : MonoBehaviour
         Velocity = Vector3.zero;
         if(!inTar && !isDead && !isDying)
         {
+            if (startJump)
+            {
+                duration -= Time.deltaTime;
+                if (duration < 0)
+                    endJump();
+            }
+            if (startSpeed)
+            {
+                duration -= Time.deltaTime;
+                if (duration < 0)
+                    endSpeed();
+            }
+            if (startDelay)
+            {
+                duration -= Time.deltaTime;
+                if (duration < 0)
+                    endDelay();
+            }
+
             if (direction > 0f)
             {
                 playerAnim.Play("DinoWalk_Right");
@@ -68,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -80,8 +106,24 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed -= 3;
         }
-        
-        
+
+        if (collision.gameObject.tag == "Shoes")
+        {
+            JumpUp();
+            Debug.Log("Shoes");
+
+        }
+        if (collision.gameObject.tag == "Riding")
+        {
+
+            Debug.Log("Riding");
+            SpeedUp();
+        }
+        if (collision.gameObject.tag == "Meat")
+        {
+            Debug.Log("Meat");
+            DelayEnemy();
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -144,6 +186,39 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+    }
+    public void SpeedUp()
+    {
+        startSpeed = true;
+        moveSpeed += speedBoost;
+    }
+    public void JumpUp()
+    {
+        startJump = true;
+        jumpSpeed += jumpBoost;
+    }
+    public void DelayEnemy()
+    {
+        startDelay = true;
+        delayEnemy = true;
+    }
+    private void endSpeed()
+    {
+        startSpeed = false;
+        duration = 5f;
+        moveSpeed -= speedBoost;
+    }
+    private void endJump()
+    {
+        startJump = false;
+        duration = 5f;
+        jumpSpeed -= jumpBoost;
+    }
+    private void endDelay()
+    {
+        startDelay = false;
+        delayEnemy = false;
+        duration = 5f;
     }
 }
 

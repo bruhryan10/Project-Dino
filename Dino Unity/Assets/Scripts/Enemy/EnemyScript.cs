@@ -12,6 +12,7 @@ public class EnemyScript : MonoBehaviour
     public float startTimer = 5;
     public float easySpeed = 6;
     public float hardSpeed = 8;
+    public float freeplaySpeed = 0f;
     void Start()
     {
         hardSpeed = 8;
@@ -31,9 +32,13 @@ public class EnemyScript : MonoBehaviour
             Enemy.transform.position = new Vector3(transform.position.x + (easySpeed * Time.deltaTime), transform.position.y);
         if (startChase && SceneManager.GetActiveScene().name == "PlainsHard")
             Enemy.transform.position = new Vector3(transform.position.x + (hardSpeed * Time.deltaTime), transform.position.y);
+        if (startChase && SceneManager.GetActiveScene().name == "PlainsFreePlay")
+            Enemy.transform.position = new Vector3(transform.position.x + (freeplaySpeed * Time.deltaTime), transform.position.y);
         if (startChase && SceneManager.GetActiveScene().name == "TundraEasy")
             Enemy.transform.position = new Vector3(transform.position.x + (easySpeed * Time.deltaTime), transform.position.y);
         if (startChase && SceneManager.GetActiveScene().name == "TundraHard")
             Enemy.transform.position = new Vector3(transform.position.x + (hardSpeed * Time.deltaTime), transform.position.y);
+        if (startChase && SceneManager.GetActiveScene().name == "TundraFreePlay")
+            Enemy.transform.position = new Vector3(transform.position.x + (freeplaySpeed * Time.deltaTime), transform.position.y);
     }
 }
