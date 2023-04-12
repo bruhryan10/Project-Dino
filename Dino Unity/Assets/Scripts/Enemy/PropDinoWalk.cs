@@ -4,53 +4,36 @@ using UnityEngine;
 
 public class PropDinoWalk : MonoBehaviour
 {
-    public float leftTimeMin = 2f;
-    public float leftTimeMax = 6f;
-    public float rightTimeMin = 2f; 
-    public float rightTimeMax = 6f; 
-    public float moveSpeed = 5f;
-    public float moveNumber;
+    public float moveSpeed = 6f;
+    public float moveTimer = 3f;
     public bool moveLeft;
-    public bool moveRight;
 
     void Start()
     {
-        Left();
+        moveLeft = true;
     }
 
     void Update()
     {
         if (moveLeft)
         {
-            moveNumber -= Time.deltaTime;
             transform.position = new Vector3(transform.position.x + (moveSpeed * Time.deltaTime), transform.position.y);
-            if (moveNumber <= 0)
-                Right();
-
+            moveTimer -= Time.deltaTime;
+            if (moveTimer <= 0)
+            {
+                moveLeft = false;
+                moveTimer = 3f;
+            }
         }
-        if (moveRight)
-        {
-            moveNumber -= Time.deltaTime;
-            transform.position = new Vector3(-transform.position.x + (moveSpeed * Time.deltaTime), transform.position.y);
-            if (moveNumber <= 0)
-                Left();
-
-        }
-    }
-    public void Left()
-    {
-        moveLeft = true;
-        moveRight = false;
-        moveNumber = Random.Range(leftTimeMin, leftTimeMax);
-        Debug.Log(moveNumber);
-
-    }
-    public void Right()
-    {
-        moveRight = true;
-        moveLeft = false;
-        moveNumber = Random.Range(leftTimeMin, leftTimeMax);
-        Debug.Log(moveNumber);
-
+        //if (!moveLeft)
+        //{
+        //    transform.position = new Vector3(-ransform.position.x + (moveSpeed * Time.deltaTime), transform.position.y);
+        //    moveTimer -= Time.deltaTime;
+        //    if (moveTimer <= 0)
+        //    {
+        //        moveLeft = true;
+        //        moveTimer = 3f;
+        //    }
+        //}
     }
 }
