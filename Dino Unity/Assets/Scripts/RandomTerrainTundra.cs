@@ -289,29 +289,29 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(speedUp).transform.position = new Vector3(129.5f, 25.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(jumpUp).transform.position = new Vector3(129.5f, 25.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(delayUp).transform.position = new Vector3(129.5f, 25.5f);
     }
     public void LoadAreaOneTwo()
     {
         AreaOneTwo.SetActive(true);
         AreaOneTwo.transform.position = new Vector3(89, 50);
-        powerNumber = Random.Range(1, 4);
-        Debug.Log(powerNumber);
-        if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(149f, 17);
-        if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(149f, 17);
-        if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(149f, 17);
     }
     public void LoadAreaOneThree()
     {
         AreaOneThree.SetActive(true);
         AreaOneThree.transform.position = new Vector3(89, 50);
+        powerNumber = Random.Range(1, 4);
+        Debug.Log(powerNumber);
+        if (powerNumber == 1)
+            Instantiate(speedUp).transform.position = new Vector3(159.6f, 17.5f);
+        if (powerNumber == 2)
+            Instantiate(jumpUp).transform.position = new Vector3(159.6f, 17.5f);
+        if (powerNumber == 3)
+            Instantiate(delayUp).transform.position = new Vector3(159.6f, 17.5f);
     }
     public void LoadAreaOneFour()
     {
@@ -325,11 +325,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(speedUp).transform.position = new Vector3(137f, 18.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(jumpUp).transform.position = new Vector3(137f, 18.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(delayUp).transform.position = new Vector3(137f, 18.5f);
     }
     public void LoadAreaOneOneV()
     {
@@ -338,11 +338,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(speedUp).transform.position = new Vector3(161.5f, 17.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(jumpUp).transform.position = new Vector3(161.5f, 17.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(delayUp).transform.position = new Vector3(161.5f, 17.5f);
     }
     public void LoadAreaOneTwoV()
     {
@@ -351,11 +351,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(150, 17);
+            Instantiate(speedUp).transform.position = new Vector3(129.5f, 11.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(150, 17);
+            Instantiate(jumpUp).transform.position = new Vector3(129.5f, 11.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(150, 17);
+            Instantiate(delayUp).transform.position = new Vector3(129.5f, 11.5f);
     }
     public void LoadAreaOneThreeV()
     {
@@ -369,11 +369,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(146, 21);
+            Instantiate(speedUp).transform.position = new Vector3(140.5f, 19.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(146, 21);
+            Instantiate(jumpUp).transform.position = new Vector3(140.5f, 19.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(146, 21);
+            Instantiate(delayUp).transform.position = new Vector3(140.5f, 19.5f);
     }
     public void LoadAreaOneFiveV()
     {
@@ -388,29 +388,29 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(speedUp).transform.position = new Vector3(129.5f, 25.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(jumpUp).transform.position = new Vector3(129.5f, 25.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(delayUp).transform.position = new Vector3(129.5f, 25.5f);
     }
     public void LoadAreaTwoTwo()
     {
         AreaTwoTwo.SetActive(true);
         AreaTwoTwo.transform.position = new Vector3(189, 50);
-        powerNumber = Random.Range(1, 4);
-        Debug.Log(powerNumber);
-        if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(149f, 17);
-        if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(149f, 17);
-        if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(149f, 17);
     }
     public void LoadAreaTwoThree()
     {
         AreaTwoThree.SetActive(true);
         AreaTwoThree.transform.position = new Vector3(189, 50);
+        powerNumber = Random.Range(1, 4);
+        Debug.Log(powerNumber);
+        if (powerNumber == 1)
+            Instantiate(speedUp).transform.position = new Vector3(159.6f, 17.5f);
+        if (powerNumber == 2)
+            Instantiate(jumpUp).transform.position = new Vector3(159.6f, 17.5f);
+        if (powerNumber == 3)
+            Instantiate(delayUp).transform.position = new Vector3(159.6f, 17.5f);
     }
     public void LoadAreaTwoFour()
     {
@@ -424,11 +424,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(speedUp).transform.position = new Vector3(137f, 18.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(jumpUp).transform.position = new Vector3(137f, 18.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(delayUp).transform.position = new Vector3(137f, 18.5f);
     }
     public void LoadAreaTwoOneV()
     {
@@ -437,11 +437,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(speedUp).transform.position = new Vector3(161.5f, 17.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(jumpUp).transform.position = new Vector3(161.5f, 17.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(delayUp).transform.position = new Vector3(161.5f, 17.5f);
     }
     public void LoadAreaTwoTwoV()
     {
@@ -450,11 +450,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(150, 17);
+            Instantiate(speedUp).transform.position = new Vector3(129.5f, 11.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(150, 17);
+            Instantiate(jumpUp).transform.position = new Vector3(129.5f, 11.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(150, 17);
+            Instantiate(delayUp).transform.position = new Vector3(129.5f, 11.5f);
     }
     public void LoadAreaTwoThreeV()
     {
@@ -468,11 +468,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(146, 21);
+            Instantiate(speedUp).transform.position = new Vector3(140.5f, 19.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(146, 21);
+            Instantiate(jumpUp).transform.position = new Vector3(140.5f, 19.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(146, 21);
+            Instantiate(delayUp).transform.position = new Vector3(140.5f, 19.5f);
     }
     public void LoadAreaTwoFiveV()
     {
@@ -487,29 +487,29 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(speedUp).transform.position = new Vector3(129.5f, 25.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(jumpUp).transform.position = new Vector3(129.5f, 25.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(delayUp).transform.position = new Vector3(129.5f, 25.5f);
     }
     public void LoadAreaThreeTwo()
     {
         AreaThreeTwo.SetActive(true);
         AreaThreeTwo.transform.position = new Vector3(289, 50);
-        powerNumber = Random.Range(1, 4);
-        Debug.Log(powerNumber);
-        if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(149f, 17);
-        if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(149f, 17);
-        if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(149f, 17);
     }
     public void LoadAreaThreeThree()
     {
         AreaThreeThree.SetActive(true);
         AreaThreeThree.transform.position = new Vector3(289, 50);
+        powerNumber = Random.Range(1, 4);
+        Debug.Log(powerNumber);
+        if (powerNumber == 1)
+            Instantiate(speedUp).transform.position = new Vector3(159.6f, 17.5f);
+        if (powerNumber == 2)
+            Instantiate(jumpUp).transform.position = new Vector3(159.6f, 17.5f);
+        if (powerNumber == 3)
+            Instantiate(delayUp).transform.position = new Vector3(159.6f, 17.5f);
     }
     public void LoadAreaThreeFour()
     {
@@ -523,11 +523,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(speedUp).transform.position = new Vector3(137f, 18.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(jumpUp).transform.position = new Vector3(137f, 18.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(delayUp).transform.position = new Vector3(137f, 18.5f);
     }
     public void LoadAreaThreeOneV()
     {
@@ -536,11 +536,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(speedUp).transform.position = new Vector3(161.5f, 17.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(jumpUp).transform.position = new Vector3(161.5f, 17.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(delayUp).transform.position = new Vector3(161.5f, 17.5f);
     }
     public void LoadAreaThreeTwoV()
     {
@@ -549,11 +549,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(150, 17);
+            Instantiate(speedUp).transform.position = new Vector3(129.5f, 11.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(150, 17);
+            Instantiate(jumpUp).transform.position = new Vector3(129.5f, 11.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(150, 17);
+            Instantiate(delayUp).transform.position = new Vector3(129.5f, 11.5f);
     }
     public void LoadAreaThreeThreeV()
     {
@@ -567,11 +567,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(146, 21);
+            Instantiate(speedUp).transform.position = new Vector3(140.5f, 19.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(146, 21);
+            Instantiate(jumpUp).transform.position = new Vector3(140.5f, 19.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(146, 21);
+            Instantiate(delayUp).transform.position = new Vector3(140.5f, 19.5f);
     }
     public void LoadAreaThreeFiveV()
     {
@@ -586,29 +586,29 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(speedUp).transform.position = new Vector3(129.5f, 25.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(jumpUp).transform.position = new Vector3(129.5f, 25.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(delayUp).transform.position = new Vector3(129.5f, 25.5f);
     }
     public void LoadAreaFourTwo()
     {
         AreaFourTwo.SetActive(true);
         AreaFourTwo.transform.position = new Vector3(389, 50);
-        powerNumber = Random.Range(1, 4);
-        Debug.Log(powerNumber);
-        if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(149f, 17);
-        if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(149f, 17);
-        if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(149f, 17);
     }
     public void LoadAreaFourThree()
     {
         AreaFourThree.SetActive(true);
         AreaFourThree.transform.position = new Vector3(389, 50);
+        powerNumber = Random.Range(1, 4);
+        Debug.Log(powerNumber);
+        if (powerNumber == 1)
+            Instantiate(speedUp).transform.position = new Vector3(159.6f, 17.5f);
+        if (powerNumber == 2)
+            Instantiate(jumpUp).transform.position = new Vector3(159.6f, 17.5f);
+        if (powerNumber == 3)
+            Instantiate(delayUp).transform.position = new Vector3(159.6f, 17.5f);
     }
     public void LoadAreaFourFour()
     {
@@ -622,11 +622,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(speedUp).transform.position = new Vector3(137f, 18.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(jumpUp).transform.position = new Vector3(137f, 18.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(delayUp).transform.position = new Vector3(137f, 18.5f);
     }
     public void LoadAreaFourOneV()
     {
@@ -635,11 +635,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(speedUp).transform.position = new Vector3(161.5f, 17.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(jumpUp).transform.position = new Vector3(161.5f, 17.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(delayUp).transform.position = new Vector3(161.5f, 17.5f);
     }
     public void LoadAreaFourTwoV()
     {
@@ -648,11 +648,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(150, 17);
+            Instantiate(speedUp).transform.position = new Vector3(129.5f, 11.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(150, 17);
+            Instantiate(jumpUp).transform.position = new Vector3(129.5f, 11.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(150, 17);
+            Instantiate(delayUp).transform.position = new Vector3(129.5f, 11.5f);
     }
     public void LoadAreaFourThreeV()
     {
@@ -666,11 +666,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(146, 21);
+            Instantiate(speedUp).transform.position = new Vector3(140.5f, 19.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(146, 21);
+            Instantiate(jumpUp).transform.position = new Vector3(140.5f, 19.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(146, 21);
+            Instantiate(delayUp).transform.position = new Vector3(140.5f, 19.5f);
     }
     public void LoadAreaFourFiveV()
     {
@@ -685,29 +685,29 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(speedUp).transform.position = new Vector3(129.5f, 25.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(jumpUp).transform.position = new Vector3(129.5f, 25.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(125.5f, 23.5f);
+            Instantiate(delayUp).transform.position = new Vector3(129.5f, 25.5f);
     }
     public void LoadAreaFiveTwo()
     {
         AreaFiveTwo.SetActive(true);
         AreaFiveTwo.transform.position = new Vector3(489, 50);
-        powerNumber = Random.Range(1, 4);
-        Debug.Log(powerNumber);
-        if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(149f, 17);
-        if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(149f, 17);
-        if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(149f, 17);
     }
     public void LoadAreaFiveThree()
     {
         AreaFiveThree.SetActive(true);
         AreaFiveThree.transform.position = new Vector3(489, 50);
+        powerNumber = Random.Range(1, 4);
+        Debug.Log(powerNumber);
+        if (powerNumber == 1)
+            Instantiate(speedUp).transform.position = new Vector3(159.6f, 17.5f);
+        if (powerNumber == 2)
+            Instantiate(jumpUp).transform.position = new Vector3(159.6f, 17.5f);
+        if (powerNumber == 3)
+            Instantiate(delayUp).transform.position = new Vector3(159.6f, 17.5f);
     }
     public void LoadAreaFiveFour()
     {
@@ -721,11 +721,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(speedUp).transform.position = new Vector3(137f, 18.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(jumpUp).transform.position = new Vector3(137f, 18.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(delayUp).transform.position = new Vector3(137f, 18.5f);
     }
     public void LoadAreaFiveOneV()
     {
@@ -734,11 +734,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(speedUp).transform.position = new Vector3(161.5f, 17.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(jumpUp).transform.position = new Vector3(161.5f, 17.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(142.5f, 26);
+            Instantiate(delayUp).transform.position = new Vector3(161.5f, 17.5f);
     }
     public void LoadAreaFiveTwoV()
     {
@@ -747,11 +747,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(150, 17);
+            Instantiate(speedUp).transform.position = new Vector3(129.5f, 11.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(150, 17);
+            Instantiate(jumpUp).transform.position = new Vector3(129.5f, 11.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(150, 17);
+            Instantiate(delayUp).transform.position = new Vector3(129.5f, 11.5f);
     }
     public void LoadAreaFiveThreeV()
     {
@@ -765,11 +765,11 @@ public class RandomTerrainTundra : MonoBehaviour
         powerNumber = Random.Range(1, 4);
         Debug.Log(powerNumber);
         if (powerNumber == 1)
-            Instantiate(speedUp).transform.position = new Vector3(146, 21);
+            Instantiate(speedUp).transform.position = new Vector3(140.5f, 19.5f);
         if (powerNumber == 2)
-            Instantiate(jumpUp).transform.position = new Vector3(146, 21);
+            Instantiate(jumpUp).transform.position = new Vector3(140.5f, 19.5f);
         if (powerNumber == 3)
-            Instantiate(delayUp).transform.position = new Vector3(146, 21);
+            Instantiate(delayUp).transform.position = new Vector3(140.5f, 19.5f);
     }
     public void LoadAreaFiveFiveV()
     {

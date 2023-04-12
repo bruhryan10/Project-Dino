@@ -14,6 +14,9 @@ public class EnemyScript : MonoBehaviour
     public float hardSpeed = 8;
     void Start()
     {
+        hardSpeed = 8;
+        easySpeed = 6;
+        startTimer = 5;
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
     }
 
