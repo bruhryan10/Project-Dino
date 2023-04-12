@@ -12,6 +12,8 @@ public class DeathScript : MonoBehaviour
     public Canvas deathUI;
     public bool isNotDead;
 
+
+
     void Start()
     {
         deathUI.enabled = false;

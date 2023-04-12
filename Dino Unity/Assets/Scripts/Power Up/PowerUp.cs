@@ -11,6 +11,8 @@ public class PowerUp : MonoBehaviour
     public bool startSpeed;
     public bool startDelay;
 
+  
+
     public GameObject powerUp;
     PlayerMovement playerMovement;
     void Start()
@@ -50,6 +52,7 @@ public class PowerUp : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player" && collision.otherCollider.tag == "Riding")
         {
+            
             Debug.Log("Riding");
             SpeedUp();
         }
@@ -98,4 +101,6 @@ public class PowerUp : MonoBehaviour
         duration = 5f;
         Destroy(gameObject);
     }
+
+    
 }

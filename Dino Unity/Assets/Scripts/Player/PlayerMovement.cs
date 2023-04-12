@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.W) && isTouchingGround || Input.GetKeyDown(KeyCode.UpArrow) && isTouchingGround)
                 player.velocity = new Vector2(player.velocity.x, jumpSpeed);
+           
             if (player.transform.position.x > 676f)
                 endLevel = true;
         }
