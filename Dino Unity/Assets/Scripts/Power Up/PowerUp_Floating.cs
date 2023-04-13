@@ -24,7 +24,7 @@ public class PowerUp_Floating : MonoBehaviour
         {
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
             GetComponent<Rigidbody2D>().gravityScale = -0.5f;
-            Debug.Log("bounce");
+            //Debug.Log("bounce");
             StartCoroutine(Floating());
             
         }
