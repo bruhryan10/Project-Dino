@@ -46,4 +46,9 @@ public class PlainsUI : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("TundraHard");
     }
+    public void LoadTundraFreePlay()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("TundraFreePlay");
+    }
 }

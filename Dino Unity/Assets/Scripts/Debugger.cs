@@ -9,6 +9,8 @@ using TMPro;
 public class Debugger : MonoBehaviour
 {
     RandomTerrainPlains terrain;
+    PlayerMovement playerMovement;
+
     public GameObject speedUp;
     public GameObject jumpUp;
     public GameObject delayUp;
@@ -26,6 +28,7 @@ public class Debugger : MonoBehaviour
     public TMP_Text debugMessage;
     void Start()
     {
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         terrain = GameObject.Find("Player").GetComponent<RandomTerrainPlains>();
         debugEnabled = false;
         debugMessage.enabled = false;
@@ -60,24 +63,42 @@ public class Debugger : MonoBehaviour
                 F9();
             if (Input.GetKeyDown(KeyCode.F10))
                 F10();
-            if (Input.GetKeyDown(KeyCode.BackQuote))
-                SceneManager.LoadScene("Main Menu");
             if (Input.GetKeyDown(KeyCode.Alpha1))
-                SceneManager.LoadScene("PlainsEasy");
+                SceneManager.LoadScene("Main Menu");
             if (Input.GetKeyDown(KeyCode.Alpha2))
-                SceneManager.LoadScene("PlainsHard");
+                SceneManager.LoadScene("Main Menu Tundra");
             if (Input.GetKeyDown(KeyCode.Alpha3))
-                SceneManager.LoadScene("TundraEasy");
+                SceneManager.LoadScene("PlainsEasy");
             if (Input.GetKeyDown(KeyCode.Alpha4))
-                SceneManager.LoadScene("TundraHard");
+                SceneManager.LoadScene("PlainsHard");
             if (Input.GetKeyDown(KeyCode.Alpha5))
-                Instantiate(speedUp).transform.position = new Vector2(player.transform.position.x + 2, player.transform.position.y);
+                SceneManager.LoadScene("PlainsFreePlay");
             if (Input.GetKeyDown(KeyCode.Alpha6))
-                Instantiate(jumpUp).transform.position = new Vector2(player.transform.position.x + 2, player.transform.position.y);
+                SceneManager.LoadScene("TundraEasy");
             if (Input.GetKeyDown(KeyCode.Alpha7))
+                SceneManager.LoadScene("TundraHard");
+            if (Input.GetKeyDown(KeyCode.Alpha8))
+                SceneManager.LoadScene("TundraFreePlay");
+            if (Input.GetKeyDown(KeyCode.I))
+                Instantiate(speedUp).transform.position = new Vector2(player.transform.position.x + 2, player.transform.position.y);
+            if (Input.GetKeyDown(KeyCode.O))
+                Instantiate(jumpUp).transform.position = new Vector2(player.transform.position.x + 2, player.transform.position.y);
+            if (Input.GetKeyDown(KeyCode.P))
                 Instantiate(delayUp).transform.position = new Vector2(player.transform.position.x + 2, player.transform.position.y);
             if (Input.GetKeyDown(KeyCode.E))
                 EnemyToggler();
+            if (Input.GetKeyDown(KeyCode.Z))
+                playerMovement.moveSpeed += 1;
+            if (Input.GetKeyDown(KeyCode.X))
+                playerMovement.moveSpeed -= 1;
+            if (Input.GetKeyDown(KeyCode.C))
+                playerMovement.jumpSpeed += 1;
+            if (Input.GetKeyDown(KeyCode.V))
+                playerMovement.jumpSpeed -= 1;
+            if (Input.GetKeyDown(KeyCode.B))
+                player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + 5);
+            if (Input.GetKeyDown(KeyCode.N))
+                player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y - 5);
         }
     }
     private void DebuggerStart()

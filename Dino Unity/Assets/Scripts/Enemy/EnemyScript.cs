@@ -11,6 +11,8 @@ public class EnemyScript : MonoBehaviour
     public bool startChase;
     public float startTimer = 5;
     public float easySpeed = 6;
+    public float tundraEasySpeed = 5.5f;
+    public float tundraHardSpeed = 7f;
     public float hardSpeed = 8;
     public float freeplaySpeed = 0f;
     void Start()
@@ -18,6 +20,8 @@ public class EnemyScript : MonoBehaviour
         hardSpeed = 8;
         easySpeed = 6;
         startTimer = 5;
+        tundraHardSpeed = 7;
+        tundraEasySpeed = 5.5f;
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
     }
 
@@ -35,9 +39,9 @@ public class EnemyScript : MonoBehaviour
         if (startChase && SceneManager.GetActiveScene().name == "PlainsFreePlay")
             Enemy.transform.position = new Vector3(transform.position.x + (freeplaySpeed * Time.deltaTime), transform.position.y);
         if (startChase && SceneManager.GetActiveScene().name == "TundraEasy")
-            Enemy.transform.position = new Vector3(transform.position.x + (easySpeed * Time.deltaTime), transform.position.y);
+            Enemy.transform.position = new Vector3(transform.position.x + (tundraEasySpeed * Time.deltaTime), transform.position.y);
         if (startChase && SceneManager.GetActiveScene().name == "TundraHard")
-            Enemy.transform.position = new Vector3(transform.position.x + (hardSpeed * Time.deltaTime), transform.position.y);
+            Enemy.transform.position = new Vector3(transform.position.x + (tundraHardSpeed * Time.deltaTime), transform.position.y);
         if (startChase && SceneManager.GetActiveScene().name == "TundraFreePlay")
             Enemy.transform.position = new Vector3(transform.position.x + (freeplaySpeed * Time.deltaTime), transform.position.y);
     }

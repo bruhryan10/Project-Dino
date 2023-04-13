@@ -55,6 +55,12 @@ public class PauseScript : MonoBehaviour
         resumeGame();
         SceneManager.LoadScene("Main Menu");
     }
+    public void MainMenuTundra()
+    {
+        resumeGame();
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Main Menu Tundra");
+    }
     public void QuitGame()
     {
         resumeGame();
@@ -69,5 +75,10 @@ public class PauseScript : MonoBehaviour
     {
         resumeGame();
         SceneManager.LoadScene("PlainsHard");
+    }
+    public void RestartFreeplayPlains()
+    {
+        resumeGame();
+        SceneManager.LoadScene("PlainsFreePlay");
     }
 }

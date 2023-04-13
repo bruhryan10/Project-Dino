@@ -31,6 +31,7 @@ public class MainMenuScript : MonoBehaviour
         CreditsIMG.enabled = false;
         ControlsIMG.enabled = false;
         DiffUI.enabled = false;
+        Time.timeScale = 1f;
     }
 
     void Update()
