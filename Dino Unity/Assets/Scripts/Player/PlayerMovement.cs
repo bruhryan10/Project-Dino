@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
 {
     Vector3 Velocity;
     Vector3 Jump;
-    public float fps;
     public GameObject Player;
     public Animator playerAnim;
     public Transform groundCheck;
@@ -44,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        fps = 1 / Time.deltaTime;
         if (player.transform.position.x > -3.1f && player.transform.position.x !< 668f && !isDying)
             Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);

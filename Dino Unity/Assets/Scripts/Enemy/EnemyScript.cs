@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class EnemyScript : MonoBehaviour
 {
+    public GameObject player;
     public GameObject Enemy;
     PlayerMovement playerMovement;
     public bool startChase;
@@ -33,16 +34,19 @@ public class EnemyScript : MonoBehaviour
         if (startTimer <= 0)
             startChase = true;
         if (startChase && SceneManager.GetActiveScene().name == "PlainsEasy")
-            Enemy.transform.position = new Vector3(transform.position.x + (easySpeed * Time.deltaTime), transform.position.y);
-        if (startChase && SceneManager.GetActiveScene().name == "PlainsHard")
-            Enemy.transform.position = new Vector3(transform.position.x + (hardSpeed * Time.deltaTime), transform.position.y);
-        if (startChase && SceneManager.GetActiveScene().name == "PlainsFreePlay")
-            Enemy.transform.position = new Vector3(transform.position.x + (freeplaySpeed * Time.deltaTime), transform.position.y);
+            Enemy.transform.position = new Vector3(transform.position.x + (easySpeed * Time.deltaTime), player.transform.position.y);
         if (startChase && SceneManager.GetActiveScene().name == "TundraEasy")
-            Enemy.transform.position = new Vector3(transform.position.x + (tundraEasySpeed * Time.deltaTime), transform.position.y);
-        if (startChase && SceneManager.GetActiveScene().name == "TundraHard")
-            Enemy.transform.position = new Vector3(transform.position.x + (tundraHardSpeed * Time.deltaTime), transform.position.y);
-        if (startChase && SceneManager.GetActiveScene().name == "TundraFreePlay")
-            Enemy.transform.position = new Vector3(transform.position.x + (freeplaySpeed * Time.deltaTime), transform.position.y);
+            Enemy.transform.position = new Vector3(transform.position.x + (tundraEasySpeed * Time.deltaTime), player.transform.position.y);
+
+
+
+        //if (startChase && SceneManager.GetActiveScene().name == "PlainsHard")
+        //    Enemy.transform.position = new Vector3(transform.position.x + (hardSpeed * Time.deltaTime), transform.position.y);
+        //if (startChase && SceneManager.GetActiveScene().name == "PlainsFreePlay")
+        //    Enemy.transform.position = new Vector3(transform.position.x + (freeplaySpeed * Time.deltaTime), transform.position.y);
+        //if (startChase && SceneManager.GetActiveScene().name == "TundraHard")
+        //    Enemy.transform.position = new Vector3(transform.position.x + (tundraHardSpeed * Time.deltaTime), transform.position.y);
+        //if (startChase && SceneManager.GetActiveScene().name == "TundraFreePlay")
+        //    Enemy.transform.position = new Vector3(transform.position.x + (freeplaySpeed * Time.deltaTime), transform.position.y);
     }
 }
