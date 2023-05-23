@@ -37,20 +37,35 @@ public class RandomTerrainPlains : MonoBehaviour
 
     void Update()
     {
-        if (player.transform.position.x > 76 && loadArea1 == true)
+        if (player.transform.position.x > 66 && loadArea1 == true)
+        {
+            loadNumber = Random.Range(1, 11);
             LoadAreaOne();
-        if (player.transform.position.x > 176 && loadArea2 == true)
+        }
+        if (player.transform.position.x > 166 && loadArea2 == true)
+        {
+            loadNumber = Random.Range(1, 11);
             LoadAreaTwo();
-        if (player.transform.position.x > 276 && loadArea3 == true)
+        }
+        if (player.transform.position.x > 266 && loadArea3 == true)
+        {
+            loadNumber = Random.Range(1, 11);
             LoadAreaThree();
-        if (player.transform.position.x > 376 && loadArea4 == true)
+        }
+        if (player.transform.position.x > 366 && loadArea4 == true)
+        {
+            loadNumber = Random.Range(1, 11);
             LoadAreaFour();
-        if (player.transform.position.x > 476 && loadArea5 == true)
+        }
+        if (player.transform.position.x > 466 && loadArea5 == true)
+        {
+            loadNumber = Random.Range(1, 11);
             LoadAreaFive();
+        }
     }
     public void LoadAreaOne()
     {
-        loadNumber = Random.Range(1, 11);
+
         Debug.Log(loadNumber);
         if (loadNumber == 1)
         {
@@ -103,7 +118,6 @@ public class RandomTerrainPlains : MonoBehaviour
     }
     public void LoadAreaTwo()
     {
-        loadNumber = Random.Range(1, 11);
         Debug.Log(loadNumber);
         if (loadNumber == 1)
         {
@@ -156,7 +170,6 @@ public class RandomTerrainPlains : MonoBehaviour
     }
     public void LoadAreaThree()
     {
-        loadNumber = Random.Range(1, 11);
         Debug.Log(loadNumber);
         if (loadNumber == 1)
         {
@@ -209,7 +222,6 @@ public class RandomTerrainPlains : MonoBehaviour
     }
     public void LoadAreaFour()
     {
-        loadNumber = Random.Range(1, 11);
         Debug.Log(loadNumber);
         if (loadNumber == 1)
         {
@@ -262,7 +274,6 @@ public class RandomTerrainPlains : MonoBehaviour
     }
     public void LoadAreaFive()
     {
-        loadNumber = Random.Range(1, 11);
         Debug.Log(loadNumber);
         if (loadNumber == 1)
         {

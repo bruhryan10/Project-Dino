@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
+    [HideInInspector]
     public Vector3 moveDir;
     public float moveSpeed = 7f;
     public float jumpSpeed = 5f;
@@ -22,15 +23,21 @@ public class PlayerMovement : MonoBehaviour
     private bool inTar;
     public float tarTime;
     public float tarLimit;
+    [HideInInspector]
     public bool isDead;
+    [HideInInspector]
     public bool isDying;
     public bool delayEnemy;
+    [HideInInspector]
     public bool endLevel;
     public float speedBoost = 2f;
     public float jumpBoost = 2f;
     public float duration = 5f;
+    [HideInInspector]
     public bool startJump;
+    [HideInInspector]
     public bool startSpeed;
+    [HideInInspector]
     public bool startDelay;
 
     void Start()
@@ -38,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
         player = GetComponent<Rigidbody2D>();
         endLevel = false;
         isDying = false;
-       
     }
 
     void Update()
@@ -73,8 +79,12 @@ public class PlayerMovement : MonoBehaviour
 
             if (direction > 0f)
             {
-                playerAnim.Play("DinoWalk_Right");
                 player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
+                //if (startSpeed)
+                //    playerAnim.Play("Dino_wheel");
+                //else
+                //    playerAnim.Play("Dino_wheel");
+                playerAnim.Play("DinoWalk_Right");
             }
             if (direction < 0f)
             {
