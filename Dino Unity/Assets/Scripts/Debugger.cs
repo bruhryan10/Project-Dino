@@ -16,6 +16,12 @@ public class Debugger : MonoBehaviour
     public GameObject delayUp;
     public GameObject player;
     public GameObject Enemy;
+    public GameObject Enemy2;
+    public GameObject Enemy3;
+    public GameObject Enemy4;
+    public GameObject Enemy5;
+    public GameObject Enemy6;
+    public GameObject Enemy7;
 
     public bool debugEnabled;
     public bool enemyToggle;
@@ -60,27 +66,39 @@ public class Debugger : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha1))
                 SceneManager.LoadScene("Main Menu");
             if (Input.GetKeyDown(KeyCode.Alpha2))
-                SceneManager.LoadScene("PlainsEasy");
+                SceneManager.LoadScene("Main Menu Tundra");
             if (Input.GetKeyDown(KeyCode.Alpha3))
-                SceneManager.LoadScene("TundraEasy");
+                SceneManager.LoadScene("PlainsEasy");
             if (Input.GetKeyDown(KeyCode.Alpha4))
-                Instantiate(speedUp).transform.position = new Vector2(player.transform.position.x + 2, player.transform.position.y);
+                SceneManager.LoadScene("PlainsHard");
             if (Input.GetKeyDown(KeyCode.Alpha5))
-                Instantiate(jumpUp).transform.position = new Vector2(player.transform.position.x + 2, player.transform.position.y);
+                SceneManager.LoadScene("PlainsFreePlay");
             if (Input.GetKeyDown(KeyCode.Alpha6))
+                SceneManager.LoadScene("TundraEasy");
+            if (Input.GetKeyDown(KeyCode.Alpha7))
+                SceneManager.LoadScene("TundraHard");
+            if (Input.GetKeyDown(KeyCode.Alpha8))
+                SceneManager.LoadScene("TundraFreePlay");
+            if (Input.GetKeyDown(KeyCode.I))
+                Instantiate(speedUp).transform.position = new Vector2(player.transform.position.x + 2, player.transform.position.y);
+            if (Input.GetKeyDown(KeyCode.O))
+                Instantiate(jumpUp).transform.position = new Vector2(player.transform.position.x + 2, player.transform.position.y);
+            if (Input.GetKeyDown(KeyCode.P))
                 Instantiate(delayUp).transform.position = new Vector2(player.transform.position.x + 2, player.transform.position.y);
             if (Input.GetKeyDown(KeyCode.E))
                 EnemyToggler();
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-                player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + 3);
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-                player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y - 3);
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-                player.transform.position = new Vector2(player.transform.position.x + 3, player.transform.position.y);
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-                player.transform.position = new Vector2(player.transform.position.x - 3, player.transform.position.y);
-            if (Input.GetKeyDown(KeyCode.R))
-                SceneManager.LoadScene("PlainsEasy");
+            if (Input.GetKeyDown(KeyCode.Z))
+                playerMovement.moveSpeed += 1;
+            if (Input.GetKeyDown(KeyCode.X))
+                playerMovement.moveSpeed -= 1;
+            if (Input.GetKeyDown(KeyCode.C))
+                playerMovement.jumpSpeed += 1;
+            if (Input.GetKeyDown(KeyCode.V))
+                playerMovement.jumpSpeed -= 1;
+            if (Input.GetKeyDown(KeyCode.B))
+                player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + 5);
+            if (Input.GetKeyDown(KeyCode.N))
+                player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y - 5);
         }
     }
     private void DebuggerStart()
@@ -95,58 +113,174 @@ public class Debugger : MonoBehaviour
     {
         enemyToggle = !enemyToggle;
         if (enemyToggle)
+        {
             Enemy.SetActive(false);
+            Enemy2.SetActive(false);
+            Enemy3.SetActive(false);
+            Enemy4.SetActive(false);
+            Enemy5.SetActive(false);
+            Enemy6.SetActive(false);
+            Enemy7.SetActive(false);
+        }
         if (!enemyToggle)
+        {
             Enemy.SetActive(true);
+            Enemy2.SetActive(true);
+            Enemy3.SetActive(true);
+            Enemy4.SetActive(true);
+            Enemy5.SetActive(true);
+            Enemy6.SetActive(true);
+            Enemy7.SetActive(true);
+        }
     }
     private void F1()
     {
-        terrain.loadNumber = 1;
-        terrain.LoadAreaOne();
+        terrain.loadArea1 = false;
+        terrain.loadArea2 = true;
+        terrain.LoadAreaOneOne();
+        terrain.AreaOneTwo.SetActive(false);
+        terrain.AreaOneThree.SetActive(false);
+        terrain.AreaOneFour.SetActive(false);
+        terrain.AreaOneFive.SetActive(false);
+        terrain.AreaOneOneV.SetActive(false);
+        terrain.AreaOneTwoV.SetActive(false);
+        terrain.AreaOneThreeV.SetActive(false);
+        terrain.AreaOneFourV.SetActive(false);
+        terrain.AreaOneFiveV.SetActive(false);
     }
     private void F2()
     {
-        terrain.loadNumber = 2;
-        terrain.LoadAreaOne();
+        terrain.loadArea1 = false;
+        terrain.loadArea2 = true;
+        terrain.LoadAreaOneTwo();
+        terrain.AreaOneOne.SetActive(false);
+        terrain.AreaOneThree.SetActive(false);
+        terrain.AreaOneFour.SetActive(false);
+        terrain.AreaOneFive.SetActive(false);
+        terrain.AreaOneOneV.SetActive(false);
+        terrain.AreaOneTwoV.SetActive(false);
+        terrain.AreaOneThreeV.SetActive(false);
+        terrain.AreaOneFourV.SetActive(false);
+        terrain.AreaOneFiveV.SetActive(false);
     }
     private void F3()
     {
-        terrain.loadNumber = 3;
-        terrain.LoadAreaOne();
+        terrain.loadArea1 = false;
+        terrain.loadArea2 = true;
+        terrain.LoadAreaOneThree();
+        terrain.AreaOneOne.SetActive(false);
+        terrain.AreaOneTwo.SetActive(false);
+        terrain.AreaOneFour.SetActive(false);
+        terrain.AreaOneFive.SetActive(false);
+        terrain.AreaOneOneV.SetActive(false);
+        terrain.AreaOneTwoV.SetActive(false);
+        terrain.AreaOneThreeV.SetActive(false);
+        terrain.AreaOneFourV.SetActive(false);
+        terrain.AreaOneFiveV.SetActive(false);
     }
     private void F4()
     {
-        terrain.loadNumber = 4;
-        terrain.LoadAreaOne();
+        terrain.loadArea1 = false;
+        terrain.loadArea2 = true;
+        terrain.LoadAreaOneFour();
+        terrain.AreaOneOne.SetActive(false);
+        terrain.AreaOneTwo.SetActive(false);
+        terrain.AreaOneThree.SetActive(false);
+        terrain.AreaOneFive.SetActive(false);
+        terrain.AreaOneOneV.SetActive(false);
+        terrain.AreaOneTwoV.SetActive(false);
+        terrain.AreaOneThreeV.SetActive(false);
+        terrain.AreaOneFourV.SetActive(false);
+        terrain.AreaOneFiveV.SetActive(false);
     }
     private void F5()
     {
-        terrain.loadNumber = 5;
-        terrain.LoadAreaOne();
+        terrain.loadArea1 = false;
+        terrain.loadArea2 = true;
+        terrain.LoadAreaOneFive();
+        terrain.AreaOneOne.SetActive(false);
+        terrain.AreaOneTwo.SetActive(false);
+        terrain.AreaOneThree.SetActive(false);
+        terrain.AreaOneFour.SetActive(false);
+        terrain.AreaOneOneV.SetActive(false);
+        terrain.AreaOneTwoV.SetActive(false);
+        terrain.AreaOneThreeV.SetActive(false);
+        terrain.AreaOneFourV.SetActive(false);
+        terrain.AreaOneFiveV.SetActive(false);
     }
     private void F6()
     {
-        terrain.loadNumber = 6;
-        terrain.LoadAreaOne();
+        terrain.loadArea1 = false;
+        terrain.loadArea2 = true;
+        terrain.LoadAreaOneOneV();
+        terrain.AreaOneOne.SetActive(false);
+        terrain.AreaOneTwo.SetActive(false);
+        terrain.AreaOneThree.SetActive(false);
+        terrain.AreaOneFour.SetActive(false);
+        terrain.AreaOneFive.SetActive(false);
+        terrain.AreaOneTwoV.SetActive(false);
+        terrain.AreaOneThreeV.SetActive(false);
+        terrain.AreaOneFourV.SetActive(false);
+        terrain.AreaOneFiveV.SetActive(false);
     }
     private void F7()
     {
-        terrain.loadNumber = 7;
-        terrain.LoadAreaOne();
+        terrain.loadArea1 = false;
+        terrain.loadArea2 = true;
+        terrain.LoadAreaOneTwoV();
+        terrain.AreaOneOne.SetActive(false);
+        terrain.AreaOneTwo.SetActive(false);
+        terrain.AreaOneThree.SetActive(false);
+        terrain.AreaOneFour.SetActive(false);
+        terrain.AreaOneFive.SetActive(false);
+        terrain.AreaOneOneV.SetActive(false);
+        terrain.AreaOneThreeV.SetActive(false);
+        terrain.AreaOneFourV.SetActive(false);
+        terrain.AreaOneFiveV.SetActive(false);
     }
     private void F8()
     {
-        terrain.loadNumber = 8;
-        terrain.LoadAreaOne();
+        terrain.loadArea1 = false;
+        terrain.loadArea2 = true;
+        terrain.LoadAreaOneThreeV();
+        terrain.AreaOneOne.SetActive(false);
+        terrain.AreaOneTwo.SetActive(false);
+        terrain.AreaOneThree.SetActive(false);
+        terrain.AreaOneFour.SetActive(false);
+        terrain.AreaOneFive.SetActive(false);
+        terrain.AreaOneOneV.SetActive(false);
+        terrain.AreaOneTwoV.SetActive(false);
+        terrain.AreaOneFourV.SetActive(false);
+        terrain.AreaOneFiveV.SetActive(false);
     }
     private void F9()
     {
-        terrain.loadNumber = 9;
-        terrain.LoadAreaOne();
+        terrain.loadArea1 = false;
+        terrain.loadArea2 = true;
+        terrain.LoadAreaOneFourV();
+        terrain.AreaOneOne.SetActive(false);
+        terrain.AreaOneTwo.SetActive(false);
+        terrain.AreaOneThree.SetActive(false);
+        terrain.AreaOneFour.SetActive(false);
+        terrain.AreaOneFive.SetActive(false);
+        terrain.AreaOneOneV.SetActive(false);
+        terrain.AreaOneTwoV.SetActive(false);
+        terrain.AreaOneThreeV.SetActive(false);
+        terrain.AreaOneFiveV.SetActive(false);
     }
     private void F10()
     {
-        terrain.loadNumber = 10;
-        terrain.LoadAreaOne();
+        terrain.loadArea1 = false;
+        terrain.loadArea2 = true;
+        terrain.LoadAreaOneFiveV();
+        terrain.AreaOneOne.SetActive(false);
+        terrain.AreaOneTwo.SetActive(false);
+        terrain.AreaOneThree.SetActive(false);
+        terrain.AreaOneFour.SetActive(false);
+        terrain.AreaOneFive.SetActive(false);
+        terrain.AreaOneOneV.SetActive(false);
+        terrain.AreaOneTwoV.SetActive(false);
+        terrain.AreaOneThreeV.SetActive(false);
+        terrain.AreaOneFourV.SetActive(false);
     }
 }

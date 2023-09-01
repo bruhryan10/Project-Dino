@@ -45,8 +45,4 @@ public class EnemyScript : MonoBehaviour
         if (startChase && SceneManager.GetActiveScene().name == "TundraFreePlay")
             Enemy.transform.position = new Vector3(transform.position.x + (freeplaySpeed * Time.deltaTime), transform.position.y);
     }
-    public void restart()
-    {
-        Enemy.transform.position = new Vector3(transform.position.x - 13, player.transform.position.y);
-    }
 }

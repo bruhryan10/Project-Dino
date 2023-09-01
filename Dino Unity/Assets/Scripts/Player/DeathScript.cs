@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class DeathScript : MonoBehaviour
 {
     PlayerMovement playerMovement;
-    playerRevive revive;
     public Animator playerAnim;
     public Canvas deathUI;
     public bool isNotDead;
@@ -19,14 +18,11 @@ public class DeathScript : MonoBehaviour
     {
         deathUI.enabled = false;
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        revive = GameObject.Find("Player").GetComponent<playerRevive>();
-        isNotDead = true;
-
     }
 
     void Update()
     {
-        if (playerMovement.isDead)
+        if (playerMovement.isDead && isNotDead == false)
         {
             IsDead();
             playerAnim.Play("DeathTwo");
@@ -59,12 +55,9 @@ public class DeathScript : MonoBehaviour
         IsNotDead();
         SceneManager.LoadScene("PlainsEasy");
     }
-<<<<<<< HEAD
-=======
     public void RestartHard()
     {
         IsNotDead();
         SceneManager.LoadScene("PlainsHard");
     }
->>>>>>> parent of 4fb1915 (Removed Difficulties, edited UIs, Chasing enemy looks way batter, changes to UI)
 }
