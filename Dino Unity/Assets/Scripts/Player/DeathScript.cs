@@ -59,4 +59,12 @@ public class DeathScript : MonoBehaviour
         IsNotDead();
         SceneManager.LoadScene("PlainsEasy");
     }
+<<<<<<< HEAD
+=======
+    public void RestartHard()
+    {
+        IsNotDead();
+        SceneManager.LoadScene("PlainsHard");
+    }
+>>>>>>> parent of 4fb1915 (Removed Difficulties, edited UIs, Chasing enemy looks way batter, changes to UI)
 }

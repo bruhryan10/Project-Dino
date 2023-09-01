@@ -9,9 +9,32 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 17667a305f83767498ee4355dd08211f
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/PlainsEasy.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/TundraEasy.unity
     guid: 4fdd11249dc5c404c950c18b6d75cfe4
+=======
+    path: Assets/Scenes/Main Menu Tundra.unity
+    guid: 0ad30adffa877a04f8cf5a9fa24882d2
+  - enabled: 1
+    path: Assets/Scenes/Plains/PlainsEasy.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Plains/PlainsHard.unity
+    guid: 6446938aa97d4e048a04b3087dc4add3
+  - enabled: 1
+    path: Assets/Scenes/Plains/PlainsFreePlay.unity
+    guid: 3bd7ec7ddb6889f42ac0107f76c6364e
+  - enabled: 1
+    path: Assets/Scenes/Tundra/TundraEasy.unity
+    guid: 4fdd11249dc5c404c950c18b6d75cfe4
+  - enabled: 1
+    path: Assets/Scenes/Tundra/TundraHard.unity
+    guid: d654d8714c3c6d740bad0e995dee6157
+  - enabled: 1
+    path: Assets/Scenes/Tundra/TundraFreePlay.unity
+    guid: f48ff6c005144044fbd17c7de6e5749c
+>>>>>>> parent of 4fb1915 (Removed Difficulties, edited UIs, Chasing enemy looks way batter, changes to UI)
   m_configObjects: {}

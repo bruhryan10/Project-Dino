@@ -63,18 +63,18 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("PlainsEasy");
     }
-    //public void loadHard()
-    //{
-    //    SceneManager.LoadScene("PlainsHard");
-    //}
-    //public void loadFreePlay()
-    //{
-    //    SceneManager.LoadScene("PlainsFreePlay");
-    //}
-    //public void DifficultyUI()
-    //{
-    //    DiffUI.enabled = true;
-    //}
+    public void loadHard()
+    {
+        SceneManager.LoadScene("PlainsHard");
+    }
+    public void loadFreePlay()
+    {
+        SceneManager.LoadScene("PlainsFreePlay");
+    }
+    public void DifficultyUI()
+    {
+        DiffUI.enabled = true;
+    }
 
     public void Credits()
     {
@@ -92,13 +92,13 @@ public class MainMenuScript : MonoBehaviour
         }
         ControlsIMG.enabled = !ControlsIMG.IsActive();
     }
-    //public void SwitchBackground()
-    //{
-    //    if (SceneManager.GetActiveScene().name == "Main Menu")
-    //        SceneManager.LoadScene("Main Menu Tundra");
-    //    if (SceneManager.GetActiveScene().name == "Main Menu Tundra")
-    //        SceneManager.LoadScene("Main Menu");
-    //}
+    public void SwitchBackground()
+    {
+        if (SceneManager.GetActiveScene().name == "Main Menu")
+            SceneManager.LoadScene("Main Menu Tundra");
+        if (SceneManager.GetActiveScene().name == "Main Menu Tundra")
+            SceneManager.LoadScene("Main Menu");
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
