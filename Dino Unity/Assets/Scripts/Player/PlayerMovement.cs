@@ -40,11 +40,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public bool startDelay;
 
-    Vector2 right = new Vector2(600, 0);
-
     void Start()
     {
-        Application.targetFrameRate = -1;
         player = GetComponent<Rigidbody2D>();
         endLevel = false;
         isDying = false;
@@ -55,56 +52,7 @@ public class PlayerMovement : MonoBehaviour
         if (player.transform.position.x > -3.1f && player.transform.position.x !< 668f && !isDying)
             Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-
-
-        //if (Input.touchCount > 0)
-        //{
-        //    Touch touch = Input.GetTouch(0);
-        //    if (touch.phase == TouchPhase.Began && isTouchingGround && !isDying && !isDead)
-        //    {
-        //        player.velocity = new Vector2(player.velocity.x, jumpSpeed);
-
-        //    }
-        //    else if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
-        //    {
-        //        if (touch.position.x > Screen.width / 2 && !isDying && !isDead)
-        //        {
-        //            Debug.Log("Right");
-        //            playerAnim.Play("DinoWalk_Right");
-        //            player.velocity = new Vector2(moveSpeed, player.velocity.y);
-        //        }
-        //        else
-        //        {
-        //            Debug.Log("Left");
-        //            playerAnim.Play("DinoWalk_Left");
-        //            player.velocity = new Vector2(-moveSpeed, player.velocity.y);
-        //        }
-        //    }
-        //}
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-                if (touch.phase == TouchPhase.Began && isTouchingGround && !isDying && !isDead)
-                {
-                    player.velocity = new Vector2(player.velocity.x, jumpSpeed);
-                }
-            //    else if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved && isTouchingGround)
-            //    {
-            //        if (touch.position.x > Screen.width / 2 && !isDying && !isDead)
-            //        {
-            //            Debug.Log("Right");
-            //            playerAnim.Play("DinoWalk_Right");
-            //            player.velocity = new Vector2(moveSpeed, player.velocity.y);
-            //        }
-            //        else if (!isDying && !isDead)
-            //        {
-            //            Debug.Log("Left");
-            //            playerAnim.Play("DinoWalk_Left");
-            //            player.velocity = new Vector2(-moveSpeed, player.velocity.y);
-            //        }
-            //    }
-        }
-            direction = Input.GetAxis("Horizontal");
+        direction = Input.GetAxis("Horizontal");
 
         Jump = Vector3.zero;
         Velocity = Vector3.zero;
@@ -129,15 +77,15 @@ public class PlayerMovement : MonoBehaviour
                     endDelay();
             }
 
-            //if (direction > 0f)
-            //{
-            //    player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
-            //    //if (startSpeed)
-            //    //    playerAnim.Play("Dino_wheel");
-            //    //else
-            //    //    playerAnim.Play("Dino_wheel");
-            //    playerAnim.Play("DinoWalk_Right");
-            //}
+            if (direction > 0f)
+            {
+                player.velocity = new Vector2(direction * moveSpeed, player.velocity.y);
+                //if (startSpeed)
+                //    playerAnim.Play("Dino_wheel");
+                //else
+                //    playerAnim.Play("Dino_wheel");
+                playerAnim.Play("DinoWalk_Right");
+            }
             if (direction < 0f)
             {
                 playerAnim.Play("DinoWalk_Left");
@@ -155,26 +103,6 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
-    private void FixedUpdate()
-    {
-        if (isTouchingGround && !isDying && !isDead)
-        {
-            Touch touch = Input.GetTouch(0);
-            if (touch.position.x > Screen.width / 2)
-            {
-                Debug.Log("Right");
-                playerAnim.Play("DinoWalk_Right");
-                player.velocity = new Vector2(moveSpeed, player.velocity.y);
-            }
-            else
-            {
-                Debug.Log("Left");
-                playerAnim.Play("DinoWalk_Left");
-                player.velocity = new Vector2(-moveSpeed, player.velocity.y);
-            }
-        }
-    }
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
