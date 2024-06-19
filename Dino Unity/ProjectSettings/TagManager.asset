@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - Icicle
+  - TarPit
+  - KillBox
+  - Water
+  - Enemy
+  - Shoes
+  - Meat
+  - Riding
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: GroundBackground
+    uniqueID: 4288065297
+    locked: 0
+  - name: Grounds
+    uniqueID: 1184531971
+    locked: 0
+  - name: Prop
+    uniqueID: 65030707
+    locked: 0
+  - name: Player
+    uniqueID: 428924389
+    locked: 0
+  - name: TarPit
+    uniqueID: 4271619567
+    locked: 0
