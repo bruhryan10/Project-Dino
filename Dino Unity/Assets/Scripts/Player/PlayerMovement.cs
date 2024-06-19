@@ -48,11 +48,20 @@ public class PlayerMovement : MonoBehaviour
         player = GetComponent<Rigidbody2D>();
         endLevel = false;
         isDying = false;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     }
 
     void Update()
     {
+<<<<<<< Updated upstream
         if (player.transform.position.x > -3.1f && player.transform.position.x !< 668f && !isDying)
+=======
+        fps = 1 / Time.deltaTime;
+        if (player.transform.position.x > -3.1f && player.transform.position.x! < 668f && !isDying)
+>>>>>>> Stashed changes
             Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
@@ -108,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
 
         Jump = Vector3.zero;
         Velocity = Vector3.zero;
-        if(!inTar && !isDead && !isDying)
+        if (!inTar && !isDead && !isDying)
         {
             if (startJump)
             {
@@ -145,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.W) && isTouchingGround || Input.GetKeyDown(KeyCode.UpArrow) && isTouchingGround)
                 player.velocity = new Vector2(player.velocity.x, jumpSpeed);
-           
+
             if (player.transform.position.x > 676f)
                 endLevel = true;
         }
@@ -178,11 +187,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "Icicle")
+        if (collision.collider.tag == "Icicle")
         {
             Die();
         }
-        if(collision.collider.tag == "TarPit")
+        if (collision.collider.tag == "TarPit")
         {
             moveSpeed -= 3;
         }
@@ -208,14 +217,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.collider.tag == "TarPit")
+        if (collision.collider.tag == "TarPit")
         {
             TarPitTimer();
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.collider.tag == "TarPit")
+        if (collision.collider.tag == "TarPit")
         {
             moveSpeed += 3;
             tarTime = 0;
@@ -225,25 +234,25 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.tag == "Enemy")
             Die();
-        if(collision.tag == "Water")
+        if (collision.tag == "Water")
         {
             GetComponent<Collider2D>().enabled = false;
             GetComponent<Rigidbody2D>().gravityScale = 0.2f;
             StartCoroutine(TarFalling());
         }
-        if(collision.tag == "KillBox")
+        if (collision.tag == "KillBox")
             StartCoroutine(TarFalling());
     }
 
     public void TarPitTimer()
     {
-        if(tarTime > tarLimit)
+        if (tarTime > tarLimit)
         {
             inTar = true;
             GetComponent<Collider2D>().enabled = false;
             GetComponent<Rigidbody2D>().gravityScale = 0.1f;
             StartCoroutine(TarFalling());
-            
+
         }
         else
             tarTime += Time.deltaTime;

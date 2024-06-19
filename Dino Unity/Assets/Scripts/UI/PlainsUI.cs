@@ -10,30 +10,29 @@ using TMPro;
 public class PlainsUI : MonoBehaviour
 {
     PlayerMovement playerMovement;
-    Debugger debug;
-    public Canvas MainUI;
-    public Canvas EndUI;
-    public TMP_Text startRunning;
-    public float runTimer;
+    [SerializeField] Canvas MainUI;
+    [SerializeField] GameObject start;
+    [SerializeField] GameObject continueButton;
+    [SerializeField] float runTimer;
     void Start()
     {
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        debug = GameObject.Find("Player").GetComponent<Debugger>();
         runTimer = 4f;
         Time.timeScale = 1f;
         MainUI.enabled = true;
-        EndUI.enabled = false;
+        continueButton.SetActive(false);
     }
 
     void Update()
     {
-        runTimer -= Time.deltaTime;
+        if (start.activeInHierarchy)
+            runTimer -= Time.deltaTime;
         if (runTimer <= 0)
-            startRunning.enabled = false;
+            start.SetActive(false);
         if (playerMovement.endLevel == true)
         {
             Time.timeScale = 0f;
-            EndUI.enabled = true;
+            continueButton.SetActive(true);
         }
     }
     public void LoadTundraEasy()
@@ -41,6 +40,7 @@ public class PlainsUI : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("TundraEasy");
     }
+<<<<<<< Updated upstream
     //public void LoadTundraHard()
     //{
     //    Time.timeScale = 1f;
@@ -51,4 +51,6 @@ public class PlainsUI : MonoBehaviour
     //    Time.timeScale = 1f;
     //    SceneManager.LoadScene("TundraFreePlay");
     //}
+=======
+>>>>>>> Stashed changes
 }

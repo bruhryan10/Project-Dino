@@ -19,7 +19,10 @@ public class DeathScript : MonoBehaviour
     {
         deathUI.enabled = false;
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+<<<<<<< Updated upstream
         revive = GameObject.Find("Player").GetComponent<playerRevive>();
+=======
+>>>>>>> Stashed changes
         isNotDead = true;
 
     }

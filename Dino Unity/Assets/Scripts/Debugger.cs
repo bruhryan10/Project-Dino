@@ -9,6 +9,7 @@ using TMPro;
 public class Debugger : MonoBehaviour
 {
     RandomTerrainPlains terrain;
+    TerrainGen terrainGen;
     PlayerMovement playerMovement;
 
     public GameObject speedUp;
@@ -19,13 +20,15 @@ public class Debugger : MonoBehaviour
 
     public bool debugEnabled;
     public bool enemyToggle;
-    public TMP_Text debugMessage;
+    public GameObject debugstuff;
+    Rigidbody2D rb;
     void Start()
     {
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         terrain = GameObject.Find("Player").GetComponent<RandomTerrainPlains>();
+        terrainGen = GameObject.Find("TerrainGenManager").GetComponent<TerrainGen>();
         debugEnabled = false;
-        debugMessage.enabled = false;
+        debugstuff.SetActive(false);
     }
 
     void Update()
@@ -36,7 +39,7 @@ public class Debugger : MonoBehaviour
         }
         if (debugEnabled)
         {
-            debugMessage.enabled = true;
+            debugstuff.SetActive(true);
             if (Input.GetKeyDown(KeyCode.F1))
                 F1();
             if (Input.GetKeyDown(KeyCode.F2))
@@ -81,14 +84,25 @@ public class Debugger : MonoBehaviour
                 player.transform.position = new Vector2(player.transform.position.x - 3, player.transform.position.y);
             if (Input.GetKeyDown(KeyCode.R))
                 SceneManager.LoadScene("PlainsEasy");
+<<<<<<< Updated upstream
+=======
+            if (Input.GetKeyDown(KeyCode.K))
+                playerMovement.isDead = true;
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                foreach (Transform child in terrainGen.transform)
+                    Destroy(child.gameObject);
+                terrainGen.StartTerrainGen();
+            }
+>>>>>>> Stashed changes
         }
     }
     private void DebuggerStart()
     {
         debugEnabled = !debugEnabled;
-        if (debugMessage.enabled == true)
+        if (debugstuff.activeInHierarchy)
         {
-            debugMessage.enabled = false;
+            debugstuff.SetActive(false);
         }
     }
     private void EnemyToggler()
