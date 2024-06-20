@@ -30513,7 +30513,6 @@ MonoBehaviour:
   - {fileID: 5442517630122705238, guid: 9f425d56d5ca068479ab0ada2cc5b67e, type: 3}
   - {fileID: 5993182573171836275, guid: 76f4203ff5e77b54785ebd820cdefd3c, type: 3}
   - {fileID: 512225676084719798, guid: 381606dd4f8663d48ad711ce3a0bac63, type: 3}
-  terrainGenNum: e7030000
   parentTerrain: {fileID: 1339046327}
 --- !u!1 &1429153627
 GameObject:

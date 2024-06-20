@@ -13,6 +13,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] GameObject credits;
     [SerializeField] GameObject controls;
     [SerializeField] GameObject unusedAssets;
+    [SerializeField] GameObject[] sign;
 
     int testCount;
     int menu;
@@ -23,6 +24,7 @@ public class MainMenuUI : MonoBehaviour
         Time.timeScale = 1f;
         menu = 0;
         DisableImages();
+        sign[0].SetActive(true);
     }
     public void DebugLogTest()
     {
@@ -89,6 +91,9 @@ public class MainMenuUI : MonoBehaviour
         Debug.Log("Setting Plains!");
         tundraObj.SetActive(false);
         plainsObj.SetActive(true);
+        sign[0].SetActive(true);
+        sign[1].SetActive(false);
+
         for (int i = 0; i < textColors.Count; i++)
         {
             Debug.Log("Setting color to grat...");
@@ -105,7 +110,10 @@ public class MainMenuUI : MonoBehaviour
         Debug.Log("Setting Tundra!");
         tundraObj.SetActive(true);
         plainsObj.SetActive(false);
+        sign[0].SetActive(false);
+        sign[1].SetActive(true);
         for (int i = 0; i < textColors.Count; i++)
-            textColors[i].color = new Color(165f / 255f, 181f / 255f, 231f / 255f);
+            textColors[i].color = new Color(212f / 255f, 218f / 255f, 236f / 255f);
+        //textColors[i].color = new Color(165f / 255f, 181f / 255f, 231f / 255f);
     }
 }
