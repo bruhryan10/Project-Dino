@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         fps = 1 / Time.deltaTime;
-            Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
+        //Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z - 10);
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         direction = Input.GetAxis("Horizontal");
 

@@ -1,16 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Android;
 
 public class TerrainGen : MonoBehaviour
 {
+    [SerializeField] PowerupSpawn powerUpSpawn;
     [SerializeField] GameObject player;
-
-    [SerializeField] GameObject speedPower;
-    [SerializeField] GameObject delayPower;
-    [SerializeField] GameObject jumpPower;
-    int powerNum;
     [SerializeField] Vector2[] genPositions;
     [SerializeField] List<GameObject> plainsTerrain;
     [SerializeField] GameObject parentTerrain;
@@ -27,10 +22,12 @@ public class TerrainGen : MonoBehaviour
             GenTerrain(GenNum, i + 1);
         }
     }
-    void GenTerrain(int num, int pos)
+    void GenTerrain(int GenNum, int pos)
     {
-        GameObject terrain = plainsTerrain[num];
+        GameObject terrain = plainsTerrain[GenNum];
         GameObject spawnedTerrain = Instantiate(terrain, genPositions[pos], Quaternion.identity);
         spawnedTerrain.transform.SetParent(parentTerrain.transform);
+        if (GenNum == 1 || GenNum == 2 || GenNum == 5 || GenNum == 6 || GenNum == 7 || GenNum == 9)
+            powerUpSpawn.SpawnPowerup(spawnedTerrain);
     }
 }
