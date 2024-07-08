@@ -6,28 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class EnemyScript : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject Enemy;
-    PlayerMovement playerMovement;
-    public bool startChase;
-
-    [SerializeField] float startTimer = 5;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject Enemy;
+    bool startChase;
+    [SerializeField] bool delay;
+    [SerializeField] float startTimer;
     [SerializeField] int enemySpeed;
-    void Start()
-    {
-        enemySpeed = 6;
-        startTimer = 5;
-        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-    }
 
     void Update()
     {
-/*        if (playerMovement.delayEnemy)
-            return;*/
         startTimer -= Time.deltaTime;
         if (startTimer <= 0)
             startChase = true;
-        if (startChase)
+        if (startChase && !delay)
             Enemy.transform.position = new Vector3(transform.position.x + (enemySpeed * Time.deltaTime), player.transform.position.y);
+    }
+    public void SetDelay(bool text)
+    {
+        delay = text;
     }
 }

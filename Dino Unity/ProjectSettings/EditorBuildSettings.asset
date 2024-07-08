@@ -14,4 +14,5 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TundraEasy.unity
     guid: 4fdd11249dc5c404c950c18b6d75cfe4
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 5454345cb9bd1334182fc5a41717f289, type: 2}

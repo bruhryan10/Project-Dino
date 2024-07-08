@@ -6,7 +6,7 @@
             "id": "d6c5912f-593c-4812-9291-59e37a2ede8d",
             "actions": [
                 {
-                    "name": "jump",
+                    "name": "HE",
                     "type": "Button",
                     "id": "fc71f074-c931-464a-a7c6-df6c999b3542",
                     "expectedControlType": "Button",
@@ -32,7 +32,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "kbm",
-                    "action": "jump",
+                    "action": "HE",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -43,7 +43,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "kbm",
-                    "action": "jump",
+                    "action": "HE",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -54,7 +54,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "kbm",
-                    "action": "jump",
+                    "action": "HE",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

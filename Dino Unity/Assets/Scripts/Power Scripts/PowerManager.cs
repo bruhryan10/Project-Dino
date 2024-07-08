@@ -20,9 +20,9 @@ public class PowerManager : MonoBehaviour
     }
     IEnumerator DelayPower()
     {
-        //enemyScript.DelayEnemy(true);
-        yield return new WaitForSeconds(5f);
-        //enemyScript.DelayEnemy(false);
+        enemyScript.SetDelay(true);
+        yield return new WaitForSeconds(4f);
+        enemyScript.SetDelay(false);
     }
     IEnumerator SpeedPower()
     {
