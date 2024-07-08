@@ -5,7 +5,6 @@ using UnityEngine;
 public class TerrainGen : MonoBehaviour
 {
     [SerializeField] PowerupSpawn powerUpSpawn;
-    [SerializeField] GameObject player;
     [SerializeField] Vector2[] genPositions;
     [SerializeField] List<GameObject> plainsTerrain;
     [SerializeField] GameObject parentTerrain;

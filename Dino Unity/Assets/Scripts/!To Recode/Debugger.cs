@@ -8,7 +8,6 @@ using TMPro;
 
 public class Debugger : MonoBehaviour
 {
-    RandomTerrainPlains terrain;
     TerrainGen terrainGen;
     PlayerMovement playerMovement;
 
@@ -25,7 +24,6 @@ public class Debugger : MonoBehaviour
     void Start()
     {
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        terrain = GameObject.Find("Player").GetComponent<RandomTerrainPlains>();
         terrainGen = GameObject.Find("TerrainGenManager").GetComponent<TerrainGen>();
         debugEnabled = false;
         debugstuff.SetActive(false);
@@ -40,7 +38,7 @@ public class Debugger : MonoBehaviour
         if (debugEnabled)
         {
             debugstuff.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.F1))
+/*            if (Input.GetKeyDown(KeyCode.F1))
                 F1();
             if (Input.GetKeyDown(KeyCode.F2))
                 F2();
@@ -59,7 +57,7 @@ public class Debugger : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F9))
                 F9();
             if (Input.GetKeyDown(KeyCode.F10))
-                F10();
+                F10();*/
             if (Input.GetKeyDown(KeyCode.Alpha1))
                 SceneManager.LoadScene("Main Menu");
             if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -84,8 +82,8 @@ public class Debugger : MonoBehaviour
                 player.transform.position = new Vector2(player.transform.position.x - 3, player.transform.position.y);
             if (Input.GetKeyDown(KeyCode.R))
                 SceneManager.LoadScene("PlainsEasy");
-            if (Input.GetKeyDown(KeyCode.K))
-                playerMovement.isDead = true;
+/*            if (Input.GetKeyDown(KeyCode.K))
+                playerMovement.isDead = true;*/
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 foreach (Transform child in terrainGen.transform)
@@ -110,7 +108,7 @@ public class Debugger : MonoBehaviour
         if (!enemyToggle)
             Enemy.SetActive(true);
     }
-    private void F1()
+/*    private void F1()
     {
         terrain.loadNumber = 1;
         terrain.LoadAreaOne();
@@ -159,5 +157,5 @@ public class Debugger : MonoBehaviour
     {
         terrain.loadNumber = 10;
         terrain.LoadAreaOne();
-    }
+    }*/
 }

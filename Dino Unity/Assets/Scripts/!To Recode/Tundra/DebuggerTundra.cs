@@ -86,7 +86,7 @@ public class DebuggerTundra : MonoBehaviour
                 Instantiate(delayUp).transform.position = new Vector2(player.transform.position.x + 2, player.transform.position.y);
             if (Input.GetKeyDown(KeyCode.E))
                 EnemyToggler();
-            if (Input.GetKeyDown(KeyCode.Z))
+/*            if (Input.GetKeyDown(KeyCode.Z))
                 playerMovement.moveSpeed += 1;
             if (Input.GetKeyDown(KeyCode.X))
                 playerMovement.moveSpeed -= 1;
@@ -94,7 +94,7 @@ public class DebuggerTundra : MonoBehaviour
                 playerMovement.jumpSpeed += 1;
             if (Input.GetKeyDown(KeyCode.V))
                 playerMovement.jumpSpeed -= 1;
-            if (Input.GetKeyDown(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.B))*/
                 player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + 5);
             if (Input.GetKeyDown(KeyCode.N))
                 player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y - 5);

@@ -10,14 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6441188096889479570}
   - component: {fileID: 6441188096889479571}
-  - component: {fileID: 6441188096889479580}
   - component: {fileID: -2313408666952176734}
   - component: {fileID: 6441188096889479581}
   - component: {fileID: 6441188096889479582}
   - component: {fileID: 6441188096889479583}
   m_Layer: 0
-  m_Name: SlowEnemyPowerUp
-  m_TagString: Meat
+  m_Name: delay
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,25 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6441188096889479580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6441188096889479576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09d8abed80bd71e499a0a9dc3479187e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedBoost: 2
-  jumpBoost: 2
-  duration: 5
-  startJump: 0
-  startSpeed: 0
-  startDelay: 0
-  powerUp: {fileID: 6441188096889479576}
 --- !u!114 &-2313408666952176734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +164,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.006116867}
+  m_Offset: {x: 0, y: -0.0011901855}
   serializedVersion: 2
-  m_Radius: 0.42537117
+  m_Radius: 0.54667854

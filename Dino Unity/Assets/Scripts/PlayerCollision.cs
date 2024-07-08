@@ -5,21 +5,38 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    StartManager start;
-    void Start()
-    {
-        start = GameObject.Find("StartManager").GetComponent<StartManager>();
-    }
-
-    void Update()
-    {
-        
-    }
+    [SerializeField] StartManager start;
+    [SerializeField] PowerManager powerManager;
+    [SerializeField] PlayerStats playerStats;
+    [SerializeField] HazardManager hazardManager;
+    [SerializeField] DeathScript death;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name == "StartTrigger")
-        {
             start.StartGame();
+        if (other.tag == "PowerUp")
+            powerManager.StartPowerUp(other.gameObject);
+        if (other.tag == "Enemy")
+            death.PlayerDeath();
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.tag == "TarPit")
+            hazardManager.TarDebuff(-3);
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.collider.tag == "TarPit")
+        {
+            hazardManager.TarDebuff(3);
+            hazardManager.ResetTimer();
+        }
+    }
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.collider.tag == "TarPit")
+        {
+            hazardManager.StartTimer();
         }
     }
 }

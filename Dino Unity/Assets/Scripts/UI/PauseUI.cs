@@ -17,10 +17,6 @@ public class PauseUI : MonoBehaviour
 
     void Update()
     {
-        if (playerMovement.endLevel)
-            return;
-        if (playerMovement.isDead)
-            return;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (paused == true)
@@ -29,7 +25,7 @@ public class PauseUI : MonoBehaviour
                 PauseGame();
         }
     }
-    void ResumeGame()
+    public void ResumeGame()
     {
         UI.enabled = false;
         Time.timeScale = 1f;

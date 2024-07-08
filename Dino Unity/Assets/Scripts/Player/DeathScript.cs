@@ -8,53 +8,25 @@ using UnityEngine.SceneManagement;
 public class DeathScript : MonoBehaviour
 {
     PlayerMovement playerMovement;
-    public Animator playerAnim;
-    public Canvas deathUI;
-    public bool isNotDead;
-
+    [SerializeField] Animator playerAnim;
+    [SerializeField] Canvas deathUI;
 
 
     void Start()
     {
         deathUI.enabled = false;
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        isNotDead = true;
-
     }
 
-    void Update()
+    public void PlayerDeath()
     {
-        if (playerMovement.isDead)
-        {
-            IsDead();
-            playerAnim.Play("DeathTwo");
-        }
-    }
-
-    public void IsDead()
-    {
+        playerAnim.Play("DeathTwo");
         Time.timeScale = 0f;
         deathUI.enabled = true;
     }
-    public void IsNotDead()
+    public void ResetAfterDeath()
     {
-        isNotDead = true;
         Time.timeScale = 1f;
         deathUI.enabled = false;
-    }
-    public void MainMenu()
-    {
-        IsNotDead();
-        SceneManager.LoadScene("Main Menu");
-    }
-    public void QuitGame()
-    {
-        IsNotDead();
-        Application.Quit();
-    }
-    public void RestartEasy()
-    {
-        IsNotDead();
-        SceneManager.LoadScene("PlainsEasy");
     }
 }

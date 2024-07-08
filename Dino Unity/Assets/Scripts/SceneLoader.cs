@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class SceneLoader : MonoBehaviour
+{
+    PauseUI pauseUI;
+    void Start()
+    {
+        pauseUI = GameObject.Find("PauseUI").GetComponent<PauseUI>(); 
+    }
+    public void RestartCurrentScene()
+    {
+        Time.timeScale = 1.0f;
+        string currentScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentScene);
+    }
+    public void QuitGame()
+    {
+        Time.timeScale = 1.0f;
+        Application.Quit();
+    }
+    public void ResumeGame()
+    {
+        pauseUI.ResumeGame();
+    }
+}

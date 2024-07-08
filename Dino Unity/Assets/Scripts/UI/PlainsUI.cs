@@ -29,11 +29,6 @@ public class PlainsUI : MonoBehaviour
             runTimer -= Time.deltaTime;
         if (runTimer <= 0)
             start.SetActive(false);
-        if (playerMovement.endLevel == true)
-        {
-            Time.timeScale = 0f;
-            continueButton.SetActive(true);
-        }
     }
     public void LoadTundraEasy()
     {

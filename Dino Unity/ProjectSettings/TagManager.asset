@@ -10,9 +10,7 @@ TagManager:
   - KillBox
   - Water
   - Enemy
-  - Shoes
-  - Meat
-  - Riding
+  - PowerUp
   layers:
   - Default
   - TransparentFX
