@@ -2,136 +2,97 @@
     "name": "Player",
     "maps": [
         {
-            "name": "Movement",
-            "id": "d6c5912f-593c-4812-9291-59e37a2ede8d",
+            "name": "move",
+            "id": "28d8120a-990e-418c-9dee-960fb8c4be57",
             "actions": [
                 {
-                    "name": "HE",
+                    "name": "jump",
                     "type": "Button",
-                    "id": "fc71f074-c931-464a-a7c6-df6c999b3542",
+                    "id": "14fdc39c-1175-4730-b025-697c1c8f2d89",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "move",
-                    "type": "Button",
-                    "id": "ff3f4536-6f48-4089-a466-badf414c84a3",
-                    "expectedControlType": "Button",
+                    "name": "movement",
+                    "type": "Value",
+                    "id": "b9689057-19f1-4b60-9423-167e680060b0",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "715f7e7a-9de9-46a6-b5b6-8e52c99656a2",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "kbm",
-                    "action": "HE",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b387f4c5-10fd-4009-bb75-77f4802dcba7",
+                    "id": "4db60517-6218-48ff-bfc5-9e93bd0902fb",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "kbm",
-                    "action": "HE",
+                    "groups": "",
+                    "action": "jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "75d5fa57-d7de-4fc7-b5c9-d69f871d27bc",
+                    "id": "bfbac57f-1127-444a-aa8b-9e228a842128",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0fbc09d5-c17d-4260-93f4-a50524206095",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "kbm",
-                    "action": "HE",
+                    "groups": "",
+                    "action": "jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "leftrightAD",
-                    "id": "627651e6-81ba-4597-8202-f77ad5c1bdb1",
+                    "name": "ad",
+                    "id": "9ba1a587-afef-4a32-baf9-2f31e9f2228f",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "move",
+                    "action": "movement",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "negative",
-                    "id": "4a6f9584-e406-4d93-a90c-a22a57507adc",
+                    "id": "4bc239d9-f3aa-499f-8665-573caf6bd086",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "kbm",
-                    "action": "move",
+                    "groups": "",
+                    "action": "movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "b412d08d-c0b6-43f5-b051-5714d08c23dc",
+                    "id": "815b3a58-3167-4f8a-9c2d-67fd0b0cae21",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "kbm",
-                    "action": "move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "leftrightkey",
-                    "id": "b1e24ea0-7f98-4724-b16b-482d8ccb6203",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
                     "groups": "",
-                    "action": "move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "3d4315db-0c55-40d2-a17f-eb22aac89299",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "kbm",
-                    "action": "move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "c61570b5-2c0d-400d-92ea-97603c442f30",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "kbm",
-                    "action": "move",
+                    "action": "movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
             ]
         }
     ],
-    "controlSchemes": [
-        {
-            "name": "kbm",
-            "bindingGroup": "kbm",
-            "devices": []
-        }
-    ]
+    "controlSchemes": []
 }

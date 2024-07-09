@@ -24,43 +24,36 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] InputAction jumps;
     InputAction move;
     [SerializeField] PlayerInput input;
+    bool stopMovement;
+
 
     void Awake()
     {
         input = GetComponent<PlayerInput>();
-        if (input == null)
-        {
-            Debug.LogError("PlayerInput component not found!");
-            return;
-        }
+        jumps = input.actions.FindAction("jump");
 
-        jumps = input.actions.FindAction("HE");
-        if (jumps == null)
-        {
-            Debug.LogError("Input action 'HE' not found!");
-            return;
-        }
-
-        //jumps.performed += ctx => JumpHandler();
-        Debug.Log("Subscribed to jumps.performed");
-        //move = input.actions.FindActionMap("Movement").FindAction("move");
+        jumps.performed += ctx => JumpHandler();
+        move = input.actions.FindAction("movement");
+        //move.performed += ctx => MovementHandler();
         playerRB = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        MovementHandler();
-        jumps.performed += ctx => Debug.Log("Pressed!");
-
+        float MoveDir = move.ReadValue<float>();
+        //Debug.Log(MoveDir);
+        if (!stopMovement)
+            MovementHandler(MoveDir);
         /*        if (player.transform.position.x > 676f)
                     endLevel = true;*/
     }
-    void MovementHandler()
+    void MovementHandler(float moveDir)
     {
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         direction = Input.GetAxis("Horizontal");
         Jump = Vector3.zero;
         Velocity = Vector3.zero;
+        //Debug.Log(direction);
         if (direction > 0f)
         {
             playerAnim.Play("DinoWalk_Right");
@@ -74,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void JumpHandler()
     {
+        if (stopMovement)
+            return;
         Debug.Log("Jump Ran!");
         if (isTouchingGround)
             playerRB.velocity = new Vector2(playerRB.velocity.x, playerStats.GetJump());
@@ -99,6 +94,10 @@ public class PlayerMovement : MonoBehaviour
             jumps.Disable();
             Debug.Log("Jump action disabled");
         }
+    }
+    public void SetMovementStatus(bool text)
+    {
+        stopMovement = text;
     }
 }
 

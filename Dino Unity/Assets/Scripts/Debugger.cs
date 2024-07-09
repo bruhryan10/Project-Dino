@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor.TerrainTools;
+using UnityEngine.InputSystem;
 
 public class Debugger : MonoBehaviour
 {
@@ -20,17 +21,33 @@ public class Debugger : MonoBehaviour
     public bool debugEnabled;
     public bool enemyToggle;
     bool enemyColl;
-    public GameObject debugstuff;
+    public GameObject debugUI;
     Rigidbody2D rb;
     [SerializeField] List<GameObject> terrainObjs;
     bool terrainShowcase;
     GameObject TerrainShowcaseSpawned;
     Vector2 storedPos;
+
+    [SerializeField] TMP_Text debuggerHeader;
+    [SerializeField] TMP_Text generalLeft;
+    [SerializeField] TMP_Text generalRight;
+    [SerializeField] TMP_Text cameraText;
+    [SerializeField] TMP_Text previewText;
+    [SerializeField] bool camToggle;
+    [SerializeField] Camera mainCam;
+    Vector3 camLoc;
+    [SerializeField] float camSpeed;
+    [SerializeField] float zoomSpeed = 1.0f;
+    string headerText;
+
+
     void Start()
     {
         terrainGen = GameObject.Find("TerrainGenManager").GetComponent<TerrainGen>();
         debugEnabled = false;
-        debugstuff.SetActive(false);
+        previewText.enabled = false;
+        cameraText.enabled = false;
+        debugUI.SetActive(false);
     }
 
     void Update()
@@ -39,16 +56,19 @@ public class Debugger : MonoBehaviour
             DebuggerStart();
         if (!debugEnabled)
             return;
+        debugUI.SetActive(true);
         for (int i = 1; i <= 10; i++)
             if (Input.GetKeyDown("f" + i))
                 TerrainShowcase(i);
-        debugstuff.SetActive(true);
-        if (Input.GetKeyDown(KeyCode.Tab) && terrainShowcase)
+        if (terrainShowcase)
         {
-            terrainShowcase = false;
-            Destroy(TerrainShowcaseSpawned);
-            player.transform.position = storedPos;
+            debuggerHeader.text = "Debugger - Terrain Preview";
+            generalLeft.enabled = false;
+            generalRight.enabled = false;
+            previewText.enabled = true;
         }
+        if (Input.GetKeyDown(KeyCode.Tab) && terrainShowcase)
+            DisableTerrainShowcase();
         if (Input.GetKeyDown(KeyCode.Alpha1))
             SceneManager.LoadScene("PlainsEasy");
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -73,7 +93,7 @@ public class Debugger : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
             EnemyToggler();
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Q))
             EnemyCollision();
         if (Input.GetKeyDown(KeyCode.K))
             player.GetComponent<DeathScript>().PlayerDeath();
@@ -83,6 +103,10 @@ public class Debugger : MonoBehaviour
                 Destroy(child.gameObject);
             terrainGen.StartTerrainGen();
         }
+        if (Input.GetKeyDown(KeyCode.C))
+            CameraToggle();
+        if (camToggle)
+            CamMovement();
         if (Input.GetKeyDown(KeyCode.UpArrow))
             player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + 3);
         if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -95,10 +119,8 @@ public class Debugger : MonoBehaviour
     private void DebuggerStart()
     {
         debugEnabled = !debugEnabled;
-        if (debugstuff.activeInHierarchy)
-        {
-            debugstuff.SetActive(false);
-        }
+        if (debugUI.activeInHierarchy)
+            debugUI.SetActive(false);
     }
     void EnemyCollision()
     {
@@ -113,6 +135,49 @@ public class Debugger : MonoBehaviour
             Enemy.GetComponent<EnemyScript>().SetDelay(false);
             Enemy.GetComponent<BoxCollider2D>().enabled = true;
         }
+    }
+    void CamMovement()
+    {
+        camSpeed = 10 * (mainCam.orthographicSize * 0.33f);
+        Vector3 newPosition = mainCam.transform.position;
+        if (Input.GetKey(KeyCode.W))
+            newPosition.y += camSpeed * Time.deltaTime;
+        if (Input.GetKey(KeyCode.S))
+            newPosition.y -= camSpeed * Time.deltaTime;
+        if (Input.GetKey(KeyCode.D))
+            newPosition.x += camSpeed * Time.deltaTime;
+        if (Input.GetKey(KeyCode.A))
+            newPosition.x -= camSpeed * Time.deltaTime;
+        newPosition.z = -10;
+        mainCam.transform.position = newPosition;
+        if (Mouse.current.scroll.ReadValue().y > 0)
+            mainCam.orthographicSize = Mathf.Max(mainCam.orthographicSize - zoomSpeed);
+        if (Mouse.current.scroll.ReadValue().y < 0)
+            mainCam.orthographicSize = Mathf.Max(mainCam.orthographicSize + zoomSpeed);
+    }
+    void CameraToggle()
+    {
+        camToggle = !camToggle;
+        Debug.Log("Toggled Cam!");
+        if (!camToggle)
+        {
+            player.GetComponent<PlayerMovement>().SetMovementStatus(false);
+            mainCam.transform.localPosition = new Vector3(-0.03000021f,1,-10);
+            mainCam.orthographicSize = 4.25f;
+            cameraText.enabled = false;
+            generalLeft.enabled = true;
+            generalRight.enabled = true;
+        }
+        else
+        {
+            camLoc = mainCam.transform.position;
+            player.GetComponent<PlayerMovement>().SetMovementStatus(true);
+            debuggerHeader.text = "Debugger - Camera Move";
+            cameraText.enabled = true;
+            generalLeft.enabled = false;
+            generalRight.enabled = false;
+        }
+
     }
     private void EnemyToggler()
     {
@@ -132,5 +197,15 @@ public class Debugger : MonoBehaviour
         TerrainShowcaseSpawned.transform.position = new Vector2(0, 130);
         transform.position = new Vector2(0, 100);
         Debug.Log("Loading Terrain " + terrain + "(" + TerrainShowcaseSpawned.name + ")");
+    }
+    void DisableTerrainShowcase()
+    {
+        debuggerHeader.text = "Debugger - General";
+        terrainShowcase = false;
+        Destroy(TerrainShowcaseSpawned);
+        player.transform.position = storedPos;
+        generalLeft.enabled = true;
+        generalRight.enabled = true;
+        previewText.enabled = false;
     }
 }
