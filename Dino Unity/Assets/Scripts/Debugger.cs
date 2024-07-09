@@ -164,6 +164,7 @@ public class Debugger : MonoBehaviour
             player.GetComponent<PlayerMovement>().SetMovementStatus(false);
             mainCam.transform.localPosition = new Vector3(-0.03000021f,1,-10);
             mainCam.orthographicSize = 4.25f;
+            debuggerHeader.text = "Debugger - General";
             cameraText.enabled = false;
             generalLeft.enabled = true;
             generalRight.enabled = true;
