@@ -37,16 +37,6 @@ public class PauseUI : MonoBehaviour
         Time.timeScale = 0f;
         paused = true;
     }
-    public void MainMenu()
-    {
-        ResumeGame();
-        SceneManager.LoadScene("Main Menu");
-    }
-    public void RestartGame()
-    {
-        ResumeGame();
-        SceneManager.LoadScene("PlainsEasy");
-    }
     public void QuitGame()
     {
         ResumeGame();

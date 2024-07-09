@@ -31,6 +31,7 @@ public class HazardManager : MonoBehaviour
     }
     IEnumerator TarDeath()
     {
+        player.GetComponent<PlayerMovement>().SetMovementStatus(true);
         player.GetComponent<Collider2D>().enabled = false;
         player.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
         yield return new WaitForSeconds(2);

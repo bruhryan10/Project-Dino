@@ -31,8 +31,6 @@ public class ScreenAnim : MonoBehaviour
             yield return null;
         }
         rectTransform.sizeDelta = new Vector2(endWidth, rectTransform.sizeDelta.y);
-        GameObject.Find("Main Camera").transform.parent = null;
-        GameObject.Find("Player").gameObject.SetActive(false);
         loader.AfterAnim();
     }
 }

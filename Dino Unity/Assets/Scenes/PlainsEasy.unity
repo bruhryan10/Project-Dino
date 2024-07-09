@@ -26543,6 +26543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenuUI: {fileID: 1122895433}
   PlainsUI: {fileID: 703081802}
+  start: {fileID: 266522166}
   enemy: {fileID: 35170542}
   terrainGenManager: {fileID: 1339046327}
   colliderObj: {fileID: 2104837615}
@@ -28725,7 +28726,7 @@ GameObject:
   - component: {fileID: 748792439}
   - component: {fileID: 748792438}
   m_Layer: 6
-  m_Name: Starter Area (1)
+  m_Name: flat test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51781,7 +51782,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4399b22e2d1498f4b89dfcca94d1721e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseScript: {fileID: 1060260330}
   animTrans: {fileID: 519294692}
+  painsUI: {fileID: 703081807}
+  pauseUI: {fileID: 1060260333}
+  deathUI: {fileID: 1994240104}
+  mainMenuUI: {fileID: 1122895433}
+  plainsUIObj: {fileID: 703081802}
+  player: {fileID: 1222660799}
+  enemy: {fileID: 35170542}
+  startTrigger: {fileID: 2104837615}
+  anim: {fileID: 1480873507}
+  defaultPos:
+  - {x: -4.24, y: 16.2}
+  - {x: -16, y: 17.89}
 --- !u!114 &1038224808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55435,7 +55449,7 @@ GameObject:
   - component: {fileID: 1480873510}
   - component: {fileID: 1480873509}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

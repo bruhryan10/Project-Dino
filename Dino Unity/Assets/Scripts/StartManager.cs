@@ -6,22 +6,15 @@ public class StartManager : MonoBehaviour
 {
     [SerializeField] Canvas MainMenuUI;
     [SerializeField] GameObject PlainsUI;
+    [SerializeField] GameObject start;
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject terrainGenManager;
     [SerializeField] GameObject colliderObj;
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
     public void StartGame()
     {
         MainMenuUI.enabled = false;
         colliderObj.SetActive(false);
+        start.SetActive(true);
         PlainsUI.SetActive(true);
         enemy.SetActive(true);
         //terrainGenManager.SetActive(true);

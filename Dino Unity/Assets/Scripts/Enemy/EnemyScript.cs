@@ -25,4 +25,8 @@ public class EnemyScript : MonoBehaviour
     {
         delay = text;
     }
+    public void ResetTimer()
+    {
+        startTimer = 5;
+    }
 }

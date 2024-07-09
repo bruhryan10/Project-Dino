@@ -35,4 +35,9 @@ public class PlainsUI : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("TundraEasy");
     }
+    public void ResetTimer(float time)
+    {
+        start.SetActive(false);
+        runTimer = time;
+    }
 }
