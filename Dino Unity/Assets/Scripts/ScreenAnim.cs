@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class ScreenAnim : MonoBehaviour
 {
@@ -8,29 +9,36 @@ public class ScreenAnim : MonoBehaviour
     [SerializeField] SceneLoader loader;
     [SerializeField] float duration;
     [SerializeField] GameObject obj;
-    [SerializeField] Canvas deathUI;
-    [SerializeField] Canvas pauseUI;
-
-    public IEnumerator AnimatePanel()
-    {
+    [SerializeField] Canvas animUI;
+    public IEnumerator RightAnim()
+   {
         obj.SetActive(true);
-        if (deathUI.enabled)
-            obj.transform.SetParent(deathUI.transform);
-        else
-            obj.transform.SetParent(pauseUI.transform);
-
-        float elapsedTime = 0.0f;
-        float startWidth = 0.0f;
-        float endWidth = Screen.width;
-
+        obj.transform.SetParent(animUI.transform);
+        Vector2 initialPosition = new Vector2(-4652.546f, 0);
+        Vector2 targetPosition = new Vector2(760, initialPosition.y);
+        float elapsedTime = 0;
         while (elapsedTime < duration)
         {
             elapsedTime += Time.unscaledDeltaTime;
-            float newWidth = Mathf.Lerp(startWidth, endWidth, elapsedTime / duration);
-            rectTransform.sizeDelta = new Vector2(newWidth, rectTransform.sizeDelta.y);
+            rectTransform.anchoredPosition = Vector2.Lerp(initialPosition, targetPosition, elapsedTime / duration);
             yield return null;
         }
-        rectTransform.sizeDelta = new Vector2(endWidth, rectTransform.sizeDelta.y);
+        rectTransform.anchoredPosition = targetPosition;
         loader.AfterAnim();
+    }
+    public IEnumerator LeftAnim()
+    {
+        obj.SetActive(true);
+        obj.transform.SetParent(animUI.transform);
+        Vector2 initialPosition = new Vector2(760, 0);
+        Vector2 targetPosition = new Vector2(-4652.546f, initialPosition.y);
+        float elapsedTime = 0;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.unscaledDeltaTime;
+            rectTransform.anchoredPosition = Vector2.Lerp(initialPosition, targetPosition, elapsedTime / duration);
+            yield return null;
+        }
+        rectTransform.anchoredPosition = targetPosition;
     }
 }

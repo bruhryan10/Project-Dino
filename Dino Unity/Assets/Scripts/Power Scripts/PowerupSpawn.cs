@@ -12,7 +12,7 @@ public class PowerupSpawn : MonoBehaviour
         powerUps.Add(area.transform.Find("delay").gameObject);
         powerUps.Add(area.transform.Find("jump").gameObject);
         int powerNum = Random.Range(0, 3);
-        Debug.Log(powerNum);
+        //Debug.Log(powerNum);
         for (int i = 0; i < powerUps.Count; i++)
         {
             if (i == powerNum)

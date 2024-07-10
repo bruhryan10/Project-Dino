@@ -92,7 +92,7 @@ public class Debugger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
             player.GetComponent<DeathScript>().PlayerDeath();
         if (Input.GetKeyDown(KeyCode.Z))
-            sceneLoader.GetComponent<SceneLoader>().LoadTerrain();
+            StartCoroutine(sceneLoader.GetComponent<SceneLoader>().LoadTerrain());
         if (Input.GetKeyDown(KeyCode.C))
             CameraToggle();
         if (camToggle)

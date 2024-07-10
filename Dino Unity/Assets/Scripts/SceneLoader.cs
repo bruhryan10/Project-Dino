@@ -17,6 +17,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] Canvas deathUI;
     [SerializeField] Canvas mainMenuUI;
     [SerializeField] GameObject plainsUIObj;
+    [SerializeField] GameObject[] imag;
 
 
     [SerializeField] GameObject player;
@@ -31,7 +32,8 @@ public class SceneLoader : MonoBehaviour
     }
     public void RestartCurrentScene()
     {
-        StartCoroutine(animTrans.AnimatePanel());
+        StartCoroutine(animTrans.RightAnim());
+        eventSystem.enabled = false;
     }
     public void AfterAnim()
     {
@@ -40,7 +42,7 @@ public class SceneLoader : MonoBehaviour
     }
     IEnumerator ResetObjects()
     {
-        LoadTerrain();
+        yield return StartCoroutine(LoadTerrain());
         eventSystem.SetSelectedGameObject(null);
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.transform.position = defaultPos[0];
@@ -52,32 +54,40 @@ public class SceneLoader : MonoBehaviour
         player.GetComponent<Rigidbody2D>().gravityScale = 2.5f;
         player.GetComponent<PlayerMovement>().SetMovementStatus(false);
         animCon.ResetAnim();
+        imag[0].SetActive(false);
+        imag[1].SetActive(false);
         yield return new WaitForSeconds(0.02f);
-        ResetUIs();
+        StartCoroutine(ResetUIs());
 
     }
-    void ResetUIs()
+    IEnumerator ResetUIs()
     {
+        yield return new WaitForSeconds(0.1f);
         pauseUI.enabled = false;
         deathUI.enabled = false;
         mainMenuUI.enabled = true;
         painsUI.ResetTimer(4);
         plainsUIObj.SetActive(false);
-        anim.GetComponent<RectTransform>().sizeDelta = new Vector2(50, 1100);
-        anim.SetActive(false);
         hazardManager.Setde();
+        StartCoroutine(animTrans.LeftAnim());
+        yield return new WaitForSeconds(1f);
+        anim.SetActive(false);
+        eventSystem.enabled = true;
         ResumeGame();
     }
-    public void LoadTerrain()
+    public IEnumerator LoadTerrain()
     {
         if (SceneManager.sceneCount > 1)
         {
-            SceneManager.UnloadSceneAsync("Terrain");
-            SceneManager.LoadScene("Terrain", LoadSceneMode.Additive);
+            yield return SceneManager.UnloadSceneAsync("Terrain");
+            yield return SceneManager.LoadSceneAsync("Terrain", LoadSceneMode.Additive);
             Debug.Log("Terrain Scene Reloaded!");
         }
         else
+        {
             Debug.LogError("No Scene to unload!");
+            yield break;
+        }
     }
     public void QuitGame()
     {
