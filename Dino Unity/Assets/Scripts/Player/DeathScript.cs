@@ -20,6 +20,7 @@ public class DeathScript : MonoBehaviour
 
     public void PlayerDeath()
     {
+        playerMovement.SetMovementStatus(true);
         playerAnim.Play("DeathTwo");
         Time.timeScale = 0f;
         deathUI.enabled = true;

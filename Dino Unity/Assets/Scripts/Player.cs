@@ -24,7 +24,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
     ""name"": ""Player"",
     ""maps"": [
         {
-            ""name"": ""move"",
+            ""name"": ""General"",
             ""id"": ""28d8120a-990e-418c-9dee-960fb8c4be57"",
             ""actions"": [
                 {
@@ -44,6 +44,15 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""97129042-01b1-4e2b-a788-930b1bbaf22c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -145,16 +154,28 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""action"": ""movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77500c42-69cc-4074-9dde-6f36c9b3aa7c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // move
-        m_move = asset.FindActionMap("move", throwIfNotFound: true);
-        m_move_jump = m_move.FindAction("jump", throwIfNotFound: true);
-        m_move_movement = m_move.FindAction("movement", throwIfNotFound: true);
+        // General
+        m_General = asset.FindActionMap("General", throwIfNotFound: true);
+        m_General_jump = m_General.FindAction("jump", throwIfNotFound: true);
+        m_General_movement = m_General.FindAction("movement", throwIfNotFound: true);
+        m_General_pause = m_General.FindAction("pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -213,35 +234,40 @@ public partial class @Player: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // move
-    private readonly InputActionMap m_move;
-    private List<IMoveActions> m_MoveActionsCallbackInterfaces = new List<IMoveActions>();
-    private readonly InputAction m_move_jump;
-    private readonly InputAction m_move_movement;
-    public struct MoveActions
+    // General
+    private readonly InputActionMap m_General;
+    private List<IGeneralActions> m_GeneralActionsCallbackInterfaces = new List<IGeneralActions>();
+    private readonly InputAction m_General_jump;
+    private readonly InputAction m_General_movement;
+    private readonly InputAction m_General_pause;
+    public struct GeneralActions
     {
         private @Player m_Wrapper;
-        public MoveActions(@Player wrapper) { m_Wrapper = wrapper; }
-        public InputAction @jump => m_Wrapper.m_move_jump;
-        public InputAction @movement => m_Wrapper.m_move_movement;
-        public InputActionMap Get() { return m_Wrapper.m_move; }
+        public GeneralActions(@Player wrapper) { m_Wrapper = wrapper; }
+        public InputAction @jump => m_Wrapper.m_General_jump;
+        public InputAction @movement => m_Wrapper.m_General_movement;
+        public InputAction @pause => m_Wrapper.m_General_pause;
+        public InputActionMap Get() { return m_Wrapper.m_General; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MoveActions set) { return set.Get(); }
-        public void AddCallbacks(IMoveActions instance)
+        public static implicit operator InputActionMap(GeneralActions set) { return set.Get(); }
+        public void AddCallbacks(IGeneralActions instance)
         {
-            if (instance == null || m_Wrapper.m_MoveActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_MoveActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_GeneralActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GeneralActionsCallbackInterfaces.Add(instance);
             @jump.started += instance.OnJump;
             @jump.performed += instance.OnJump;
             @jump.canceled += instance.OnJump;
             @movement.started += instance.OnMovement;
             @movement.performed += instance.OnMovement;
             @movement.canceled += instance.OnMovement;
+            @pause.started += instance.OnPause;
+            @pause.performed += instance.OnPause;
+            @pause.canceled += instance.OnPause;
         }
 
-        private void UnregisterCallbacks(IMoveActions instance)
+        private void UnregisterCallbacks(IGeneralActions instance)
         {
             @jump.started -= instance.OnJump;
             @jump.performed -= instance.OnJump;
@@ -249,26 +275,30 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @movement.started -= instance.OnMovement;
             @movement.performed -= instance.OnMovement;
             @movement.canceled -= instance.OnMovement;
+            @pause.started -= instance.OnPause;
+            @pause.performed -= instance.OnPause;
+            @pause.canceled -= instance.OnPause;
         }
 
-        public void RemoveCallbacks(IMoveActions instance)
+        public void RemoveCallbacks(IGeneralActions instance)
         {
-            if (m_Wrapper.m_MoveActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_GeneralActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IMoveActions instance)
+        public void SetCallbacks(IGeneralActions instance)
         {
-            foreach (var item in m_Wrapper.m_MoveActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_GeneralActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_MoveActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_GeneralActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public MoveActions @move => new MoveActions(this);
-    public interface IMoveActions
+    public GeneralActions @General => new GeneralActions(this);
+    public interface IGeneralActions
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

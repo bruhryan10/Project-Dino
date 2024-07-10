@@ -8,81 +8,41 @@ public class InputManager : MonoBehaviour
     public static InputManager Instance;
     [SerializeField] GameObject Player;
     [SerializeField] PlayerMovement playerScript;
+    [SerializeField] PauseUI pauseUI;
+   
+    PlayerInput input;
     InputAction jumps;
     InputAction move;
-    PlayerInput input;
+    InputAction pause;
+
     float MoveDir;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        GameObject playerObject = GameObject.FindWithTag("Player");
-        if (playerObject != null)
-        {
-            input = playerObject.GetComponent<PlayerInput>();
-            if (input != null)
-            {
-                jumps = input.actions.FindAction("jump");
-                move = input.actions.FindAction("movement");
-                if (jumps != null)
-                {
-                    jumps.performed += ctx => playerScript.JumpHandler(MoveDir);
-                }
-                else
-                {
-                    Debug.LogError("Jump action not found!");
-                }
-            }
-            else
-            {
-                Debug.LogError("PlayerInput component not found on Player GameObject!");
-            }
-        }
-        else
-        {
-            Debug.LogError("Player GameObject not found in scene!");
-        }
+        input = Player.GetComponent<PlayerInput>();
+        jumps = input.actions.FindAction("jump");
+        move = input.actions.FindAction("movement");
+        pause = input.actions.FindAction("pause");
+
+        jumps.performed += ctx => playerScript.JumpHandler(MoveDir);
+        pause.performed += ctx => pauseUI.TogglePause();
     }
 
     void Update()
     {
-        Player = GameObject.FindWithTag("Player");
-        playerScript = Player.GetComponent<PlayerMovement>();
-        if (input != null && playerScript != null)
-        {
             MoveDir = move.ReadValue<float>();
             playerScript.MovementHandler(MoveDir);
-        }
     }
 
     void OnEnable()
     {
-        if (jumps != null && move != null)
-        {
-            jumps.Enable();
-            move.Enable();
-        }
-        else
-        {
-            Debug.LogError("Input actions not initialized!");
-        }
+        jumps.Enable();
+        move.Enable();
     }
 
     void OnDisable()
     {
-        if (jumps != null && move != null)
-        {
-            jumps.Disable();
-            move.Disable();
-        }
+        jumps.Disable();
+        move.Disable();
     }
 }

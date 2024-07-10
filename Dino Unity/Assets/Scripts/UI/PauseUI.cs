@@ -14,16 +14,14 @@ public class PauseUI : MonoBehaviour
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         UI.enabled = false;
     }
-
-    void Update()
+    public void TogglePause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (paused == true)
-                ResumeGame();
-            else
-                PauseGame();
-        }
+        if (playerMovement.GetMovementStatus())
+            return;
+        if (paused == true)
+            ResumeGame();
+        else
+            PauseGame();
     }
     public void ResumeGame()
     {

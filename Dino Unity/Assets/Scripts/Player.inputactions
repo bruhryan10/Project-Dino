@@ -2,7 +2,7 @@
     "name": "Player",
     "maps": [
         {
-            "name": "move",
+            "name": "General",
             "id": "28d8120a-990e-418c-9dee-960fb8c4be57",
             "actions": [
                 {
@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "pause",
+                    "type": "Button",
+                    "id": "97129042-01b1-4e2b-a788-930b1bbaf22c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -123,6 +132,17 @@
                     "action": "movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "77500c42-69cc-4074-9dde-6f36c9b3aa7c",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

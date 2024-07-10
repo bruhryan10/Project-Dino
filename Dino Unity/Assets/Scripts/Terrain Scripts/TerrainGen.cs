@@ -17,7 +17,7 @@ public class TerrainGen : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             int GenNum = Random.Range(1, 11);
-            Debug.Log(GenNum);
+            //Debug.Log(GenNum);
             GenTerrain(GenNum, i + 1);
         }
     }

@@ -9,7 +9,7 @@ public class HazardManager : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] float tarTime;
     [SerializeField] float tarLimit;
-    [SerializeField] bool de;
+    [SerializeField] public bool de;
     public void TarDebuff(int num)
     {
         playerStats.SetSpeed(num);
@@ -17,6 +17,10 @@ public class HazardManager : MonoBehaviour
     public void ResetTimer()
     {
         tarTime = 0;
+    }
+    public void Setde()
+    {
+        de = false;
     }
     public void StartTimer()
     {

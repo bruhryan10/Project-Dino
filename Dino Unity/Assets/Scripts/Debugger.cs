@@ -10,23 +10,21 @@ using UnityEngine.InputSystem;
 
 public class Debugger : MonoBehaviour
 {
-    TerrainGen terrainGen;
-
-    public GameObject speedUp;
-    public GameObject jumpUp;
-    public GameObject delayUp;
-    public GameObject player;
-    public GameObject Enemy;
+    [SerializeField] GameObject[] powerUps;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject Enemy;
+    [SerializeField] GameObject sceneLoader;
 
     public bool debugEnabled;
     public bool enemyToggle;
     bool enemyColl;
     public GameObject debugUI;
-    Rigidbody2D rb;
+
     [SerializeField] List<GameObject> terrainObjs;
     bool terrainShowcase;
     GameObject TerrainShowcaseSpawned;
     Vector2 storedPos;
+
 
     [SerializeField] TMP_Text debuggerHeader;
     [SerializeField] TMP_Text generalLeft;
@@ -35,15 +33,11 @@ public class Debugger : MonoBehaviour
     [SerializeField] TMP_Text previewText;
     [SerializeField] bool camToggle;
     [SerializeField] Camera mainCam;
-    Vector3 camLoc;
     [SerializeField] float camSpeed;
     [SerializeField] float zoomSpeed = 1.0f;
-    string headerText;
-
 
     void Start()
     {
-        terrainGen = GameObject.Find("TerrainGenManager").GetComponent<TerrainGen>();
         debugEnabled = false;
         previewText.enabled = false;
         cameraText.enabled = false;
@@ -75,21 +69,21 @@ public class Debugger : MonoBehaviour
             SceneManager.LoadScene("TundraEasy");
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            GameObject spawn = Instantiate(speedUp);
+            GameObject spawn = Instantiate(powerUps[0]);
             spawn.transform.position = new Vector2(player.transform.position.x + 2.5f, player.transform.position.y);
-            spawn.name = speedUp.name;
+            spawn.name = powerUps[0].name;
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            GameObject spawn = Instantiate(jumpUp);
+            GameObject spawn = Instantiate(powerUps[1]);
             spawn.transform.position = new Vector2(player.transform.position.x + 2.5f, player.transform.position.y);
-            spawn.name = jumpUp.name;
+            spawn.name = powerUps[1].name;
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            GameObject spawn = Instantiate(delayUp);
+            GameObject spawn = Instantiate(powerUps[2]);
             spawn.transform.position = new Vector2(player.transform.position.x + 2.5f, player.transform.position.y);
-            spawn.name = delayUp.name;
+            spawn.name = powerUps[2].name;
         }
         if (Input.GetKeyDown(KeyCode.E))
             EnemyToggler();
@@ -98,11 +92,7 @@ public class Debugger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
             player.GetComponent<DeathScript>().PlayerDeath();
         if (Input.GetKeyDown(KeyCode.Z))
-        {
-            foreach (Transform child in terrainGen.transform)
-                Destroy(child.gameObject);
-            terrainGen.StartTerrainGen();
-        }
+            sceneLoader.GetComponent<SceneLoader>().LoadTerrain();
         if (Input.GetKeyDown(KeyCode.C))
             CameraToggle();
         if (camToggle)
@@ -171,7 +161,6 @@ public class Debugger : MonoBehaviour
         }
         else
         {
-            camLoc = mainCam.transform.position;
             player.GetComponent<PlayerMovement>().SetMovementStatus(true);
             debuggerHeader.text = "Debugger - Camera Move";
             cameraText.enabled = true;

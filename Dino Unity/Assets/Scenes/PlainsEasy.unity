@@ -25531,7 +25531,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 148166707}
-  - component: {fileID: 148166706}
   - component: {fileID: 148166708}
   m_Layer: 0
   m_Name: PowerUpManager
@@ -25540,19 +25539,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &148166706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148166705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38441c231e64eb4498dfa1869edc8862, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUps: []
 --- !u!4 &148166707
 Transform:
   m_ObjectHideFlags: 0
@@ -26545,7 +26531,7 @@ MonoBehaviour:
   PlainsUI: {fileID: 703081802}
   start: {fileID: 266522166}
   enemy: {fileID: 35170542}
-  terrainGenManager: {fileID: 1339046327}
+  terrainGenManager: {fileID: 0}
   colliderObj: {fileID: 2104837615}
 --- !u!4 &247890853
 Transform:
@@ -51782,9 +51768,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4399b22e2d1498f4b89dfcca94d1721e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 1038224805}
   pauseScript: {fileID: 1060260330}
   animTrans: {fileID: 519294692}
   painsUI: {fileID: 703081807}
+  hazardManager: {fileID: 1070028451}
+  animCon: {fileID: 1222660816}
   pauseUI: {fileID: 1060260333}
   deathUI: {fileID: 1994240104}
   mainMenuUI: {fileID: 1122895433}
@@ -53304,11 +53293,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae2d8e0cb609b0429420440a61ddf41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUp: {fileID: 6305939134180415849, guid: 1c327d9d78907e14281d237831ab2e21, type: 3}
-  jumpUp: {fileID: 2211524339179262871, guid: 79dcfc72b28a59c46a2acc19b3aadda1, type: 3}
-  delayUp: {fileID: 6441188096889479576, guid: 170b19af8de246846aaa298fab2d4c7b, type: 3}
+  powerUps:
+  - {fileID: 6305939134180415849, guid: 1c327d9d78907e14281d237831ab2e21, type: 3}
+  - {fileID: 2211524339179262871, guid: 79dcfc72b28a59c46a2acc19b3aadda1, type: 3}
+  - {fileID: 6441188096889479576, guid: 170b19af8de246846aaa298fab2d4c7b, type: 3}
   player: {fileID: 1222660799}
   Enemy: {fileID: 35170542}
+  sceneLoader: {fileID: 1038224803}
   debugEnabled: 0
   enemyToggle: 0
   debugUI: {fileID: 1910418984}
@@ -53391,7 +53382,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: move
+  m_DefaultActionMap: General
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1222660816
@@ -54040,71 +54031,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329988546}
   m_CullTransparentMesh: 1
---- !u!1 &1339046327
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1339046328}
-  - component: {fileID: 1339046329}
-  m_Layer: 0
-  m_Name: TerrainGenManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1339046328
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339046327}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1339046329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339046327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2ca2f74ad0c774d9ebde7f623890d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUpSpawn: {fileID: 148166706}
-  genPositions:
-  - {x: 999, y: 999}
-  - {x: 89, y: 50}
-  - {x: 189, y: 50}
-  - {x: 289, y: 50}
-  - {x: 389, y: 50}
-  - {x: 489, y: 50}
-  plainsTerrain:
-  - {fileID: 0}
-  - {fileID: 9033385970940778461, guid: f02b6ae83970a464c8bb79ae058e6cb1, type: 3}
-  - {fileID: 66270928718130107, guid: a3bfd3dcb8a24ea44a2405249beb398c, type: 3}
-  - {fileID: 1853880718648434269, guid: 40ab0cb721e0f5b43ab0bf35e0f00860, type: 3}
-  - {fileID: 159616233339623740, guid: 91e1b1ea920c6a845b6c49cb042ffadb, type: 3}
-  - {fileID: 7528581906464981629, guid: 6ff39711bbb95a8408de5fa527a109cc, type: 3}
-  - {fileID: 8853271810670537594, guid: 8cafa436c03c25144a9d74c82cd90fee, type: 3}
-  - {fileID: 3715075634581861752, guid: ae1d5b517a48c694a860661e7f5b6fbd, type: 3}
-  - {fileID: 5442517630122705238, guid: 9f425d56d5ca068479ab0ada2cc5b67e, type: 3}
-  - {fileID: 5993182573171836275, guid: 76f4203ff5e77b54785ebd820cdefd3c, type: 3}
-  - {fileID: 512225676084719798, guid: 381606dd4f8663d48ad711ce3a0bac63, type: 3}
-  parentTerrain: {fileID: 1339046327}
 --- !u!1 &1429153627
 GameObject:
   m_ObjectHideFlags: 0
@@ -55454,7 +55380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1480873508
 RectTransform:
   m_ObjectHideFlags: 0
@@ -61481,6 +61407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1222660799}
   playerScript: {fileID: 1222660800}
+  pauseUI: {fileID: 1060260330}
 --- !u!4 &1851975369
 Transform:
   m_ObjectHideFlags: 0
@@ -90763,7 +90690,6 @@ SceneRoots:
   - {fileID: 133078222}
   - {fileID: 1259095156}
   - {fileID: 438898556}
-  - {fileID: 1339046328}
   - {fileID: 148166707}
   - {fileID: 247890853}
   - {fileID: 1070028452}

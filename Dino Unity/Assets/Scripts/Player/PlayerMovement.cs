@@ -78,5 +78,9 @@ public class PlayerMovement : MonoBehaviour
     {
         stopMovement = text;
     }
+    public bool GetMovementStatus()
+    {
+        return stopMovement;
+    }
 }
 

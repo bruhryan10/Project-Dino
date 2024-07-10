@@ -17,10 +17,14 @@ public class AnimationController : MonoBehaviour
         //playerAnim.Play("Dino_Idle");
 
     }
+    public void ResetAnim()
+    {
+        playerAnim.Play("DinoWalk_Right");
+    }
     public void AnimMove(float direction, float velocity)
     {
-        if (IsAnimationPlaying("Dino_Jump"))
-            return;
+/*        if (IsAnimationPlaying("Dino_Jump"))
+            return;*/
         if (direction > 0f)
             playerAnim.Play("DinoWalk_Right");
         if (direction < 0f)
