@@ -28,5 +28,6 @@ public class EnemyScript : MonoBehaviour
     public void ResetTimer()
     {
         startTimer = 5;
+        startChase = false;
     }
 }

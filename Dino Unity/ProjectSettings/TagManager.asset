@@ -11,6 +11,7 @@ TagManager:
   - Water
   - Enemy
   - PowerUp
+  - skull_crusher
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] PlainsUI painsUI;
     [SerializeField] HazardManager hazardManager;
     [SerializeField] AnimationController animCon;
+    [SerializeField] sc scs;
 
     [SerializeField] Canvas pauseUI;
     [SerializeField] Canvas deathUI;
@@ -40,7 +41,7 @@ public class SceneLoader : MonoBehaviour
         Time.timeScale = 1.0f;
         StartCoroutine(ResetObjects());
     }
-    IEnumerator ResetObjects()
+    public IEnumerator ResetObjects()
     {
         yield return StartCoroutine(LoadTerrain());
         eventSystem.SetSelectedGameObject(null);
